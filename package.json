@@ -1,0 +1,77 @@
+{
+  "name": "gatsby-starter-morning-dew",
+  "description": "Eka's personal site, based on Starter Morning Dew Blog",
+  "version": "1.0.0",
+  "author": "Maxence Poutord <maxence.poutord@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/maxpou/gatsby-starter-morning-dew/issues"
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.8.0",
+    "core-js": "^2.5.7",
+    "disqus-react": "^1.0.5",
+    "gatsby": "^2.0.65",
+    "gatsby-plugin-feed": "2.0.11",
+    "gatsby-plugin-google-analytics": "2.0.8",
+    "gatsby-plugin-manifest": "^2.0.11",
+    "gatsby-plugin-offline": "^2.0.19",
+    "gatsby-plugin-react-helmet": "3.0.4",
+    "gatsby-plugin-sharp": "2.0.15",
+    "gatsby-plugin-styled-components": "^3.0.4",
+    "gatsby-remark-autolink-headers": "^2.0.12",
+    "gatsby-remark-copy-linked-files": "2.0.7",
+    "gatsby-remark-images": "3.0.1",
+    "gatsby-remark-prismjs": "3.1.4",
+    "gatsby-remark-responsive-iframe": "2.0.7",
+    "gatsby-remark-smartypants": "2.0.7",
+    "gatsby-source-filesystem": "2.0.12",
+    "gatsby-transformer-remark": "2.1.15",
+    "gatsby-transformer-sharp": "2.1.9",
+    "lodash": "^4.17.5",
+    "polished": "^2.3.1",
+    "prismjs": "^1.15.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-helmet": "^5.2.0",
+    "styled-components": "^4.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@storybook/addon-actions": "^4.1.4",
+    "@storybook/addon-links": "^4.1.4",
+    "@storybook/addons": "^4.1.4",
+    "@storybook/react": "^4.1.4",
+    "babel-loader": "^8.0.4",
+    "eslint": "^5.7.0",
+    "eslint-plugin-react": "^7.7.0",
+    "prettier": "^1.12.0",
+    "puppeteer": "^1.9.0",
+    "yaml": "^1.0.0"
+  },
+  "homepage": "https://github.com/maxpou/gatsby-starter-morning-dew#readme",
+  "keywords": [
+    "gatsby",
+    "blog",
+    "starter"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxpou/gatsby-starter-morning-dew.git"
+  },
+  "scripts": {
+    "dev": "gatsby develop",
+    "clean": "rm -rf public && rm -rf .cache",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'data/siteConfig.js'",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
+    "generatePostPreviewImages": "node ./scripts/generatePostPreviewImages.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  }
+}
