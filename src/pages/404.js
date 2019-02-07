@@ -2,22 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
-import Wrapper from '../components/Wrapper'
-import SEO from '../components/SEO'
-import RelatedPosts from '../components/RelatedPosts'
+import { Layout, SEO } from '../layouts'
+import { Wrapper } from '../components/Wrapper'
+import { PostList } from '../components/PostList'
 import { Text } from '../components/Commons'
 
 const MainTitle = styled.h1`
   line-height: 1.5;
   text-align: center;
   font-size: 3rem;
-`
-
-const Ghost = styled.p`
-  line-height: 1.5;
-  text-align: center;
-  font-size: 7rem;
 `
 
 const SubTitle = styled.h2`
@@ -36,14 +29,13 @@ class NotFoundPage extends React.Component {
         <SEO title="Page Not Found" />
         <Wrapper>
           <MainTitle>404 Page Not Found</MainTitle>
-          <Ghost>👻</Ghost>
           <Text>
             Looks like you've followed a broken link or entered a URL that
             doesn't exist on this site.
           </Text>
 
           <SubTitle>Recent Posts</SubTitle>
-          <RelatedPosts posts={posts} />
+          <PostList posts={posts} listType="related" />
         </Wrapper>
       </Layout>
     )
@@ -63,7 +55,7 @@ export const pageQuery = graphql`
         node {
           excerpt
           frontmatter {
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "DD MMMM YYYY")
             title
             tags
             language

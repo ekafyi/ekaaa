@@ -2,12 +2,12 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 
-import Layout from '../components/layout'
-import Wrapper from '../components/Wrapper'
+import { Layout, SEO } from '../layouts'
+import { Wrapper } from '../components/Wrapper'
 import Hero from '../components/Hero'
-import PostsList from '../components/PostsList'
+import { PostList } from '../components/PostList'
 import Pagination from '../components/Pagination'
-import SEO from '../components/SEO'
+//import SEO from '../components/SEO'
 
 class BlogList extends React.Component {
   render() {
@@ -16,12 +16,12 @@ class BlogList extends React.Component {
     const { pageContext } = this.props
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} viewType="blog">
         <SEO />
         <Hero title={siteTitle} />
 
         <Wrapper>
-          <PostsList posts={posts} />
+          <PostList posts={posts} listType="morning-dew" />
         </Wrapper>
 
         <Pagination
@@ -45,7 +45,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { type: { ne: "page" } } }
+      filter: { frontmatter: { type: { eq: null } } }
       limit: $limit
       skip: $skip
     ) {
@@ -53,7 +53,7 @@ export const pageQuery = graphql`
         node {
           excerpt
           frontmatter {
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "DD MMMM YYYY")
             title
             tags
             language

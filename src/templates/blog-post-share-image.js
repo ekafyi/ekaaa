@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, withPrefix } from 'gatsby'
 import styled from 'styled-components'
 import siteConfig from '../../data/siteConfig'
-import { GlobalStyle } from '../components/Commons'
+import { GlobalStyle } from '../layouts/GlobalStyle'
 
 const Preview = styled.div.attrs({
   width: props => props.width || 440,
@@ -73,9 +73,6 @@ export const pageQuery = graphql`
       timeToRead
       frontmatter {
         title
-        cover {
-          publicURL
-        }
       }
     }
   }

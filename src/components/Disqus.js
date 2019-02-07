@@ -3,6 +3,19 @@ import Disqus from 'disqus-react'
 
 import siteConfig from '../../data/siteConfig'
 
+{
+  /* 
+  // usage:
+  // (eg. in `pages` / `templates` file)
+  {page.frontmatter.disqus && (
+    <Disqus
+      slug={page.frontmatter.slug}
+      title={page.frontmatter.title}
+    />
+  )} 
+*/
+}
+
 class DisqusWrapper extends React.Component {
   render() {
     const disqusShortname = siteConfig.disqusShortname

@@ -1,13 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
-import Wrapper from '../components/Wrapper'
+import { Layout, SEO } from '../layouts'
+import { Wrapper } from '../components/Wrapper'
 import Hero from '../components/Hero'
 import Article from '../components/Article'
 import PrevNextPost from '../components/PrevNextPost'
-import SEO from '../components/SEO'
-import Disqus from '../components/Disqus'
+//import SEO from '../components/SEO'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -15,7 +14,7 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} viewType="blog">
         <SEO
           title={post.frontmatter.title}
           description={post.excerpt}
@@ -41,7 +40,6 @@ class BlogPostTemplate extends React.Component {
         </Wrapper>
 
         <Wrapper>
-          <Disqus slug={post.frontmatter.slug} title={post.frontmatter.title} />
           <PrevNextPost previous={previous} next={next} />
         </Wrapper>
       </Layout>
@@ -63,15 +61,6 @@ export const pageQuery = graphql`
         slug
         language
         tags
-        cover {
-          publicURL
-        }
-        imageTw {
-          publicURL
-        }
-        imageFb {
-          publicURL
-        }
       }
     }
   }

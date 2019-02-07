@@ -35,7 +35,9 @@ class Hero extends React.Component {
     const { title } = this.props
 
     return (
-      <HeroContainer style={{ backgroundImage: `url("${heroImg}")` }}>
+      <HeroContainer
+      // style={{ backgroundImage: `url("${heroImg}")` }}
+      >
         <TitleContainer>
           <HeroTitle>{title}</HeroTitle>
         </TitleContainer>

@@ -67,6 +67,7 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-svg-sprite`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

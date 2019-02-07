@@ -15,6 +15,9 @@ module.exports = (baseConfig, env, defaultConfig) => {
   defaultConfig.module.rules[0].use[0].options.plugins = [
     require.resolve("@babel/plugin-proposal-class-properties"),
   ]
+  
+  // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
+  defaultConfig.resolve.mainFields = ["browser", "module", "main"]
 
   return defaultConfig
 }

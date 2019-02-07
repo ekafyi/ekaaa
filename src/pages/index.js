@@ -1,18 +1,40 @@
 import React from 'react'
-import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import { Link } from 'gatsby'
 
-// import Layout from '../components/layout'
-// import Wrapper from '../components/Wrapper'
-import SEO from '../components/SEO'
-import RelatedPosts from '../components/RelatedPosts'
+import illustration from '../assets/illustration-walk.svg'
+import illustrationTemp from '../assets/illustration-temp.png'
+import iconChevron from '../assets/shape-chevron.svg'
+import speechBalloon from '../assets/shape-speech-balloon.svg'
+import triangle from '../assets/shape-triangle.svg'
+import lines from '../assets/shape-lines.svg'
 
-const BodyText = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 0 3rem;
-  color: ${props => (props.color ? props.color : '#222')};
-`
+import { Layout, SEO } from '../layouts'
+import { OuterWrapper } from '../components/Wrapper'
+import {
+  LandingTopBlock,
+  LandingMidBlock,
+  LandingBottomBlock,
+  LandingTextWrapper,
+  LandingIntroWrapper,
+  SeeAllLink,
+  QuoteContainer,
+  Quote,
+  QuoteSource,
+  LandingPostsWrapper,
+  LandingTitle,
+  TopIllustration,
+  MidIllustration,
+  TextWithShapedImage,
+  ShapesGroup,
+  SvgSpeechBalloon,
+  SvgDividerTriangle,
+  SvgFooterLines,
+} from '../components/Landing'
+import { SocialHighlight } from '../components/Social'
+import { PostList, ProjectList } from '../components/PostList'
+import ProjectListItem from '../components/PostList/ProjectListItem'
+import { LargeP, P } from '../components/Typography'
 
 class LandingPage extends React.Component {
   render() {
@@ -27,46 +49,135 @@ class LandingPage extends React.Component {
     const quote = quotes[randomQuoteIndex]
 
     return (
-      <div>
+      <Layout location={this.props.location}>
         <SEO title="ekaaa.me" />
+        <OuterWrapper style={{ overflow: 'hidden' }}>
+          <LandingTopBlock>
+            <LandingTitle>
+              <div>
+                <span className="hi">Hi!</span>&nbsp;
+                <span className="wave-emoji" role="presentation" aria-hidden>
+                  👋🏾{' '}
+                </span>
+              </div>
+              <div>
+                <span className="im">I’m</span>&nbsp;
+                <span className="eka">Eka</span>
+              </div>
+              <SvgSpeechBalloon
+                role="presentation"
+                alt=""
+                aria-hidden
+                width="60"
+                height="60"
+              >
+                <use xlinkHref={`#${speechBalloon.id}`} />
+              </SvgSpeechBalloon>
+            </LandingTitle>
 
-        <h1>Hi! I'm Eka</h1>
+            <TopIllustration>
+              <svg role="presentation" alt="" aria-hidden width="120">
+                <use xlinkHref={`#${illustration.id}`} />
+              </svg>
+              <TextWithShapedImage
+                role="presentation"
+                aria-hidden
+                dangerouslySetInnerHTML={{
+                  __html: landing.frontmatter.description,
+                }}
+              />
+            </TopIllustration>
 
-        <h3>{landing.frontmatter.description}</h3>
+            <LandingIntroWrapper>
+              <LargeP
+                dangerouslySetInnerHTML={{
+                  __html: landing.frontmatter.description,
+                }}
+              />
+            </LandingIntroWrapper>
+            <LandingTextWrapper
+              dangerouslySetInnerHTML={{ __html: landing.html }}
+            />
+          </LandingTopBlock>
 
-        <BodyText
-          color="black"
-          dangerouslySetInnerHTML={{ __html: landing.html }}
-        />
+          <LandingMidBlock>
+            <div style={{ flexGrow: 1 }}>
+              <SocialHighlight />
+            </div>
+            <MidIllustration>
+              <img src={illustrationTemp} width="240" />
+            </MidIllustration>
+          </LandingMidBlock>
 
-        <section>
-          <h3>Recent Projects</h3>
-          <ul>
-            {projects.map(project => {
-              const title = project.node.frontmatter.title
-              const slug = project.node.frontmatter.slug
-              const excerpt = project.node.excerpt
-              return (
-                <li key={slug}>
-                  <h4>{title}</h4>
-                  {excerpt}
-                </li>
-              )
-            })}
-          </ul>
-        </section>
+          <ShapesGroup>
+          </ShapesGroup>
 
-        <section>
-          <h3>Recent Posts</h3>
-          <RelatedPosts posts={posts} />
-        </section>
+          <LandingBottomBlock>
+            <SvgDividerTriangle
+              role="presentation"
+              alt=""
+              aria-hidden
+              width="48"
+              height="48"
+            >
+              <use xlinkHref={`#${triangle.id}`} />
+            </SvgDividerTriangle>
+            
+            <LandingPostsWrapper sectionTitle="Projects">
+              <ProjectList posts={projects} />
+              {[0, 1, 2].map(i => {
+                return (
+                  <ProjectListItem
+                    key={i}
+                    as="div"
+                    title="coming soon"
+                    className="project-placeholder"
+                    role="presentation"
+                    aria-hidden
+                  />
+                )
+              })}
+            </LandingPostsWrapper>
+            <LandingPostsWrapper sectionTitle="Posts" childColWidth="2">
+              <PostList posts={posts} listType="short" />
+              <SeeAllLink>
+                <Link to="/blog" title="See Blog">
+                  <span className="text-label">See Blog &nbsp;</span>
+                  <svg
+                    role="presentation"
+                    alt=""
+                    aria-hidden
+                    width="40"
+                    height="40"
+                  >
+                    <use xlinkHref={`#${iconChevron.id}`} />
+                  </svg>
+                </Link>
+              </SeeAllLink>
+            </LandingPostsWrapper>
+          </LandingBottomBlock>
 
-        <div>
-          <hr />
-          <blockquote>{quote.quoteBody}</blockquote>
-          <cite>{quote.quoteSource}</cite>
-        </div>
-      </div>
+          <QuoteContainer>
+            <Quote
+              as="blockquote"
+              dangerouslySetInnerHTML={{ __html: quote.quoteBody }}
+            />
+            <QuoteSource
+              as="cite"
+              dangerouslySetInnerHTML={{ __html: quote.quoteSource }}
+            />
+          </QuoteContainer>
+          <SvgFooterLines
+            role="presentation"
+            alt=""
+            aria-hidden
+            width="240"
+            height="120"
+          >
+            <use xlinkHref={`#${lines.id}`} />
+          </SvgFooterLines>
+        </OuterWrapper>
+      </Layout>
     )
   }
 }
@@ -78,13 +189,13 @@ export const pageQuery = graphql`
     posts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { eq: null } } }
-      limit: 3
+      limit: 2
     ) {
       edges {
         node {
           excerpt
           frontmatter {
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "DD MMMM YYYY")
             title
             language
             slug
@@ -94,16 +205,17 @@ export const pageQuery = graphql`
       }
     }
     projects: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___date], order: ASC }
       filter: { frontmatter: { type: { eq: "project" } } }
-      limit: 3
+      limit: 5
     ) {
       edges {
         node {
           excerpt
           frontmatter {
+            date(formatString: "YYYY")
             title
-            slug
+            projectUrl
           }
         }
       }
@@ -124,12 +236,6 @@ export const pageQuery = graphql`
             quotes {
               quoteBody
               quoteSource
-            }
-            imageTw {
-              publicURL
-            }
-            imageFb {
-              publicURL
             }
           }
         }

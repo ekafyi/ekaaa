@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import RelatedPosts from './RelatedPosts'
+import { PostList } from './PostList'
 import { Text } from './Commons'
 
 class PrevNextPost extends React.Component {
@@ -12,7 +12,7 @@ class PrevNextPost extends React.Component {
     return (
       <Fragment>
         <Text>Read next:</Text>
-        <RelatedPosts posts={articles} />
+        <PostList posts={articles} listType="related" />
       </Fragment>
     )
   }
