@@ -4,7 +4,7 @@ import get from 'lodash/get'
 
 import { Layout, SEO } from '../layouts'
 import { PostList } from '../components/PostList'
-import { Wrapper } from '../components/Wrapper'
+import { OldWrapper } from '../components/Wrapper'
 //import SEO from '../components/SEO'
 import Hero from '../components/Hero'
 
@@ -18,10 +18,10 @@ class PostFormatPage extends React.Component {
         <SEO title={pageTitle} />
         <Hero title={pageTitle} />
 
-        <Wrapper>
+        <OldWrapper>
           <h1>{this.props.pageContext.post_format}</h1>
           <PostList posts={posts} listType="morning-dew" />
-        </Wrapper>
+        </OldWrapper>
       </Layout>
     )
   }

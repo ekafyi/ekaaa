@@ -82,7 +82,7 @@ const theme = {
   // import { borderRadius }  from "styled-system"
   // export const Foo = styled.div`${borderRadius}`
 
-  lineHeights: [ 1, 1.25, 1.425 ],
+  lineHeights: [ 1, 1.25, 1.475 ],
 
   fonts: {
     sans: '"Helvetica Neue", "Segoe UI", "Arial", "sans-serif"',

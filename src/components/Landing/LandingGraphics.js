@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { lineHeight, fontSize, fontWeight, space } from 'styled-system'
-import { mq } from '../../../data/mq';
+import { mq } from '../../../data/mq'
 import theme from '../../../data/theme'
 
 import { LargeP } from '../Typography'
@@ -127,9 +127,7 @@ export const TextWithShapedImage = styled.p`
   color: ${theme.colors.accentMain};
   a {
     color: ${theme.colors.fg};
-    &:not(:hover):not(:focus) {
-      text-decoration: none;
-    }
+    text-decoration-color: ${theme.colors.accentMain};
   }
 `
 TextWithShapedImage.defaultProps = {

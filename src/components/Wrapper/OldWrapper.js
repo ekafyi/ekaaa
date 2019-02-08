@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Wrapper = styled.main.attrs({
+const OldWrapper = styled.main.attrs({
   role: 'main',
 })`
   position: relative;
@@ -21,4 +21,4 @@ const Wrapper = styled.main.attrs({
   }
 `
 
-export default Wrapper
+export default OldWrapper

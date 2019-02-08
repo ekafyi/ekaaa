@@ -27,7 +27,7 @@ export const SeeAllLink = styled.div`
 
   ${mq.lg(css`
     &:hover {
-      transform: scale(1.18) translateX(.5rem);
+      transform: scale(1.18) translateX(0.5rem);
     }
   `)};
 

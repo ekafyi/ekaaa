@@ -59,18 +59,18 @@ addDecorator(withInfo(infoConfig))
 
 // bugfix info
 // https://github.com/storybooks/storybook/issues/2708#issuecomment-386737471
-import PropTable from '@storybook/addon-info/dist/components/PropTable';
-const PropTypesTable = ({ propDefinitions, ...props }) => {
-  propDefinitions.forEach((def) => {
-    if (typeof def.propType === 'string') {
-      def.propType = { name: def.propType };
-    }
-  });
-  return <PropTable propDefinitions={propDefinitions} {...props} />;
-};
-setDefaults({
-  TableComponent: PropTypesTable, // Override the component used to render the props table
-});
+// import PropTable from '@storybook/addon-info/dist/components/PropTable';
+// const PropTypesTable = ({ propDefinitions, ...props }) => {
+//   propDefinitions.forEach((def) => {
+//     if (typeof def.propType === 'string') {
+//       def.propType = { name: def.propType };
+//     }
+//   });
+//   return <PropTable propDefinitions={propDefinitions} {...props} />;
+// };
+// setDefaults({
+//   TableComponent: PropTypesTable, // Override the component used to render the props table
+// });
 
 // a11y check decorator
 // https://github.com/storybooks/storybook/tree/master/addons/a11y

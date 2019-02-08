@@ -14,7 +14,7 @@ class ProjectListItem extends React.Component {
 
     return (
       <Project className={className}>
-        {projectUrl ? (
+        {projectUrl && (
           <React.Fragment>
             <PostLink as="a" href={projectUrl} target="_blank">
               <PostTitle>{title}</PostTitle>
@@ -32,8 +32,6 @@ class ProjectListItem extends React.Component {
               &nbsp; see project
             </ViewProjectLink>
           </React.Fragment>
-        ) : (
-          <PlaceholderTitle>{title}</PlaceholderTitle>
         )}
         <Excerpt dangerouslySetInnerHTML={{ __html: excerpt }} />
         {date && <PostDate>{date}</PostDate>}

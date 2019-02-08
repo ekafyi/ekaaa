@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import { Layout, SEO } from '../layouts'
-import { Wrapper } from '../components/Wrapper'
+import { OldWrapper } from '../components/Wrapper'
 import Hero from '../components/Hero'
 import Article from '../components/Article'
 import PrevNextPost from '../components/PrevNextPost'
@@ -35,13 +35,13 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
         />
 
-        <Wrapper>
+        <OldWrapper>
           <Article post={post} />
-        </Wrapper>
+        </OldWrapper>
 
-        <Wrapper>
+        <OldWrapper>
           <PrevNextPost previous={previous} next={next} />
-        </Wrapper>
+        </OldWrapper>
       </Layout>
     )
   }

@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import { Layout, SEO } from '../layouts'
 import Content from '../components/Content'
-import { Wrapper } from '../components/Wrapper'
+import { OldWrapper } from '../components/Wrapper'
 import Hero from '../components/Hero'
 //import SEO from '../components/SEO'
 
@@ -25,11 +25,11 @@ class Page extends React.Component {
           title={page.frontmatter.title}
         />
 
-        <Wrapper>
+        <OldWrapper>
           <article>
             <Content content={page.html} date={page.frontmatter.date} />
           </article>
-        </Wrapper>
+        </OldWrapper>
       </Layout>
     )
   }

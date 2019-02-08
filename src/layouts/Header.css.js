@@ -5,10 +5,9 @@ import theme from '../../data/theme'
 import { mq } from '../../data/mq'
 import { Link } from 'gatsby'
 
-
 export const HeaderWrapper = styled(OuterWrapper)`
   ${space}
-  
+
   display: flex;
   justify-content: space-between;
 
@@ -20,15 +19,12 @@ export const HeaderWrapper = styled(OuterWrapper)`
 `
 HeaderWrapper.defaultProps = {
   mb: 3,
-  py: [1,2],
+  py: [1, 2],
 }
-
 
 export const PrimaryNav = styled.nav``
 
-
 export const SecondaryNav = styled.div``
-
 
 export const HeaderLink = styled(Link)`
   ${fontSize}
@@ -54,16 +50,15 @@ export const HeaderLink = styled(Link)`
   }
 `
 HeaderLink.defaultProps = {
-  fontSize: 3,
+  fontSize: 2,
   px: 1,
   py: 2,
-  mr: [1,2],
+  mr: [1, 2],
 }
 
-
-export const HomeLink = styled(HeaderLink)`  
+export const HomeLink = styled(HeaderLink)`
   color: ${theme.colors.accentMain};
-  >* {
-    font-size: 1.125em;
+  > * {
+    font-size: 1.26556em;
   }
 `

@@ -8,7 +8,6 @@ import {
   HomeLink,
 } from './Header.css'
 
-
 class Header extends React.Component {
   render() {
     const { headerLinks } = this.props
@@ -16,15 +15,19 @@ class Header extends React.Component {
     return (
       <HeaderWrapper as="header" role="header">
         <PrimaryNav>
-          {headerLinks.map((headerLink, i) => 
+          {headerLinks.map((headerLink, i) =>
             headerLink.isHome ? (
               <HomeLink to={headerLink.url} key={`header-link-${i}`}>
-              <span>{headerLink.label}</span>
-            </HomeLink>
+                <span>{headerLink.label}</span>
+              </HomeLink>
             ) : (
-              <HeaderLink to={headerLink.url} key={`header-link-${i}`}>
-              {headerLink.label}
-            </HeaderLink>
+              <HeaderLink
+                to={headerLink.url}
+                key={`header-link-${i}`}
+                activeClassName="is-active"
+              >
+                {headerLink.label}
+              </HeaderLink>
             )
           )}
         </PrimaryNav>

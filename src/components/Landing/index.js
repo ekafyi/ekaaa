@@ -47,7 +47,6 @@ export {
   SvgFooterLines,
 }
 
-
 // future refactor:
 // - LandingModuleQuote
 // - LandingModuleTitle

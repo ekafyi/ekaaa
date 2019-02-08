@@ -40,8 +40,9 @@ class Footer extends React.Component {
             <EmojiWrapper ariaLabel="yellow heart">💛</EmojiWrapper>,{' '}
             <EmojiWrapper ariaLabel="hot beverage">☕️</EmojiWrapper>,{' '}
             <a href={creditBuilt.url}>{creditBuilt.name}</a> ]  */}
-            built with{' '}<a href={creditBuilt.url}>{creditBuilt.name}</a> &nbsp;&amp;&amp;&nbsp;
-            hosted by{' '}<a href={creditHost.url}>{creditHost.name}</a>
+            built with <a href={creditBuilt.url}>{creditBuilt.name}</a>{' '}
+            &nbsp;&amp;&amp;&nbsp; hosted by{' '}
+            <a href={creditHost.url}>{creditHost.name}</a>
           </div>
           <FooterLinks>
             {footerLinks.map((link, i) => {

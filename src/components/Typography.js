@@ -36,12 +36,14 @@ P.defaultProps = {
 }
 
 // super large heading title
-export const IndexHeadingTitle = styled.h1`
+export const XLargeTitle = styled.h1`
   ${fontSize}
   ${lineHeight}
+  ${space}
 
   color: ${theme.colors.accentMain};
 `
-IndexHeadingTitle.defaultProps = {
-  fontSize: [7,7,8,'120px'],
+XLargeTitle.defaultProps = {
+  fontSize: [7, 7, 8, 'calc(7rem + 2vw)'],
+  mb: [3,3,4,5]
 }

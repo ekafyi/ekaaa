@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
-import { Wrapper, SectionTitle } from './LandingPostsWrapper.css'
+import { LandingWrapper, SectionTitle } from './LandingPostsWrapper.css'
 import { LandingPosts } from './LandingContainers'
 
 export class LandingPostsWrapper extends Component {
@@ -8,12 +8,10 @@ export class LandingPostsWrapper extends Component {
     const { sectionTitle, childColWidth, children } = this.props
 
     return (
-      <Wrapper>
+      <LandingWrapper>
         {sectionTitle && <SectionTitle>{sectionTitle}</SectionTitle>}
-        <LandingPosts childColWidth={childColWidth}>
-          {children}
-        </LandingPosts>
-      </Wrapper>
+        <LandingPosts childColWidth={childColWidth}>{children}</LandingPosts>
+      </LandingWrapper>
     )
   }
 }

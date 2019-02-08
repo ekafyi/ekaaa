@@ -97,9 +97,7 @@ export const LandingIntroWrapper = styled(LandingTextWrapper)`
   color: ${theme.colors.accentMain};
   a {
     color: ${theme.colors.fg};
-    &:not(:hover):not(:focus) {
-      text-decoration: none;
-    }
+    text-decoration-color: ${theme.colors.accentMain};
   }
 `
 
@@ -131,6 +129,6 @@ export const LandingPosts = styled.div`
     grid-template-columns: repeat(5, 1fr);
   }
 
-  ${props => (props.childColWidth && wideColStyle)}
+  ${props => props.childColWidth && wideColStyle}
 `
 // proptypes `childColWidth`

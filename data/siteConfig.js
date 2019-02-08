@@ -83,12 +83,12 @@ module.exports = {
       url: '/notes',
     },
     {
-      label: 'work',
-      url: '/blog',
+      label: 'projects',
+      url: '/projects',
     },
     {
-      label: 'projects',
-      url: '/blog',
+      label: 'now',
+      url: '/now',
     },
   ],
 
@@ -101,15 +101,15 @@ module.exports = {
     name: 'Gatsby',
     url: 'https://gatsbyjs.org',
   },
-  creditText: `© Eka 2018-2019. Unless otherwise noted, original content is licensed under <a href="https://creativecommons.org/licenses/by-nc/3.0/" rel="external">Creative Commons BY-NC</a> for non-commercial use. Views do not represent my employers.`,
+  creditText: `© Eka 2018-now. Unless otherwise noted, original content is licensed under <a href="https://creativecommons.org/licenses/by-nc/3.0/" rel="external">Creative Commons BY-NC</a> for non-commercial use. Views do not represent my employers.`,
   footerLinks: [
     {
-      label: 'site credits',
-      url: '/impressum',
+      label: 'eka@ekaaa.me',
+      url: 'mailto:eka@ekaaa.me',
     },
     {
       label: 'Twitter',
-      url: 'http://twitter.com/ekaoddlass',
+      url: 'http://twitter.com/ekaonthenet',
     },
     {
       label: 'Github',

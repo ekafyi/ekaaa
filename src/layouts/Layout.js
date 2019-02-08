@@ -9,11 +9,11 @@ import { ThemeProvider } from 'styled-components'
 import theme from '../../data/theme'
 import styled from 'styled-components'
 
-const LayoutContentWithoutHeader = styled.div` 
-  min-height: 88vh; 
+const LayoutContentWithoutHeader = styled.div`
+  min-height: 88vh;
 `
-const LayoutContentWithHeader = styled.div` 
-  min-height: calc(88vh - 5rem); 
+const LayoutContentWithHeader = styled.div`
+  min-height: calc(88vh - 5rem);
 `
 
 class Layout extends React.Component {
@@ -27,14 +27,10 @@ class Layout extends React.Component {
           {viewType === 'blog' ? (
             <Fragment>
               <Header headerLinks={siteConfig.headerLinks} />
-              <LayoutContentWithHeader>
-                {children}
-              </LayoutContentWithHeader>
+              <LayoutContentWithHeader>{children}</LayoutContentWithHeader>
             </Fragment>
           ) : (
-            <LayoutContentWithoutHeader>
-              {children}
-            </LayoutContentWithoutHeader>
+            <LayoutContentWithoutHeader>{children}</LayoutContentWithoutHeader>
           )}
           <Footer siteConfig={siteConfig} />
         </Fragment>
@@ -51,3 +47,8 @@ Layout.propTypes = {
 }
 
 export default Layout
+
+LayoutContentWithHeader.propTypes = {
+  /** test description */
+  foo: PropTypes.string,
+}

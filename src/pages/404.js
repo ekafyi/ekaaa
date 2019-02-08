@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
 import { Layout, SEO } from '../layouts'
-import { Wrapper } from '../components/Wrapper'
+import { OldWrapper } from '../components/Wrapper'
 import { PostList } from '../components/PostList'
 import { Text } from '../components/Commons'
 
@@ -27,7 +27,7 @@ class NotFoundPage extends React.Component {
     return (
       <Layout location={this.props.location} noCover={true}>
         <SEO title="Page Not Found" />
-        <Wrapper>
+        <OldWrapper>
           <MainTitle>404 Page Not Found</MainTitle>
           <Text>
             Looks like you've followed a broken link or entered a URL that
@@ -36,7 +36,7 @@ class NotFoundPage extends React.Component {
 
           <SubTitle>Recent Posts</SubTitle>
           <PostList posts={posts} listType="related" />
-        </Wrapper>
+        </OldWrapper>
       </Layout>
     )
   }

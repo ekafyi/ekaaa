@@ -33,7 +33,6 @@ import {
 } from '../components/Landing'
 import { SocialHighlight } from '../components/Social'
 import { PostList, ProjectList } from '../components/PostList'
-import ProjectListItem from '../components/PostList/ProjectListItem'
 import { LargeP, P } from '../components/Typography'
 
 class LandingPage extends React.Component {
@@ -109,8 +108,7 @@ class LandingPage extends React.Component {
             </MidIllustration>
           </LandingMidBlock>
 
-          <ShapesGroup>
-          </ShapesGroup>
+          <ShapesGroup />
 
           <LandingBottomBlock>
             <SvgDividerTriangle
@@ -122,21 +120,9 @@ class LandingPage extends React.Component {
             >
               <use xlinkHref={`#${triangle.id}`} />
             </SvgDividerTriangle>
-            
+
             <LandingPostsWrapper sectionTitle="Projects">
               <ProjectList posts={projects} />
-              {[0, 1, 2].map(i => {
-                return (
-                  <ProjectListItem
-                    key={i}
-                    as="div"
-                    title="coming soon"
-                    className="project-placeholder"
-                    role="presentation"
-                    aria-hidden
-                  />
-                )
-              })}
             </LandingPostsWrapper>
             <LandingPostsWrapper sectionTitle="Posts" childColWidth="2">
               <PostList posts={posts} listType="short" />
@@ -205,7 +191,7 @@ export const pageQuery = graphql`
       }
     }
     projects: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: ASC }
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { eq: "project" } } }
       limit: 5
     ) {

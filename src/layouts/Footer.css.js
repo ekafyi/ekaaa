@@ -8,19 +8,21 @@ export const FooterWrapper = styled(OuterWrapper)`
   ${fontSize}
   ${lineHeight}
 
-  @media (min-width: 768px) {
-    display: flex;
-    align-items: flex-end;
-    > * {
-      flex-grow: 1;
-    }
-  }
+  ${mq.sm(
+    css`
+      display: flex;
+      align-items: flex-end;
+      > * {
+        flex-grow: 1;
+      }
+    `
+  )};
 
   a {
     color: ${theme.colors.accentFg};
-    text-decoration: none;
+    text-decoration-color: hsla(0, 0%, 100%, 0.5);
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 `
@@ -37,16 +39,16 @@ export const FooterLinks = styled.div`
   text-transform: lowercase;
   li {
     display: inline-block;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     @media (min-width: 768px) {
       margin-right: 0;
-      margin-left: 1rem;
+      margin-left: 0.5rem;
     }
 
     &:before {
       content: '■';
-      margin-right: 1rem;
-      color: salmon;
+      margin-right: 0.5rem;
+      color: ${theme.colors.accentBg};
     }
 
     &:first-of-type:before {
@@ -67,11 +69,13 @@ export const FooterLinks = styled.div`
 export const Copyright = styled.div`
   ${space}
 
-  @media (min-width: 768px) {
-    min-width: 25rem;
-    max-width: 32rem;
-    order: -1;
-  }
+  ${mq.sm(
+    css`
+      min-width: 25rem;
+      max-width: 32rem;
+      order: -1;
+    `
+  )};
 `
 Copyright.defaultProps = {
   mt: [4, 3],
@@ -79,7 +83,10 @@ Copyright.defaultProps = {
 
 export const Credits = styled.div`
   min-width: 20rem;
-  @media (min-width: 768px) {
-    text-align: right;
-  }
+
+  ${mq.sm(
+    css`
+      text-align: right;
+    `
+  )};
 `

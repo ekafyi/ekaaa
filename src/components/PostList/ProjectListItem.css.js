@@ -48,39 +48,3 @@ export const Project = styled(Post)`
     }
   }
 `
-
-// Placeholder
-// (!TEMP, remove when there are enough projects)
-export const PlaceholderTitle = styled(PostTitle)`
-  .project-placeholder & {
-    display: inline-block;
-    background: ${theme.colors.fg};
-    text-indent: -99999px;
-    width: 8rem;
-    height: 0.875em;
-    margin-top: 0.25rem;
-    &:after {
-      content: '❓';
-      display: block;
-      margin-top: 1rem;
-      height: 1rem;
-      width: 1rem;
-      text-indent: 0;
-      font-size: 0.66em;
-    }
-  }
-  @media (min-width: 768px) {
-    .project-placeholder:nth-child(3) & {
-    }
-  }
-  @media (min-width: 992px) {
-    .project-placeholder:nth-child(4) & {
-      width: 6.5rem;
-    }
-  }
-  @media (min-width: 1200px) {
-    .project-placeholder:nth-child(5) & {
-      width: 9rem;
-    }
-  }
-`

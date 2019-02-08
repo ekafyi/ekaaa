@@ -3,7 +3,7 @@ import { color, fontSize, space } from 'styled-system'
 import theme from '../../../data/theme'
 import { mq } from '../../../data/mq'
 
-export const Wrapper = styled.section`
+export const LandingWrapper = styled.section`
   ${space}
 
   ${mq.lg(css`
@@ -12,7 +12,7 @@ export const Wrapper = styled.section`
     }
   `)};
 `
-Wrapper.defaultProps = {
+LandingWrapper.defaultProps = {
   my: [4, 4, 4, 5, 5],
 }
 
