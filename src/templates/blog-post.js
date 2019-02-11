@@ -34,14 +34,10 @@ class BlogPostTemplate extends React.Component {
           heroImg={post.frontmatter.cover && post.frontmatter.cover.publicURL}
           title={post.frontmatter.title}
         />
+        <Article post={post} />
 
-        <OldWrapper>
-          <Article post={post} />
-        </OldWrapper>
+        <PrevNextPost previous={previous} next={next} />
 
-        <OldWrapper>
-          <PrevNextPost previous={previous} next={next} />
-        </OldWrapper>
       </Layout>
     )
   }

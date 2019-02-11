@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Bio from './Bio'
+import BioCard from './BioCard'
 import Content from './Content'
 
 const ArticleWrapper = styled.article`
@@ -30,7 +30,7 @@ class Article extends React.Component {
           tags={post.frontmatter.tags}
         />
         <ArticleFooter>
-          <Bio />
+          <BioCard />
         </ArticleFooter>
       </ArticleWrapper>
     )

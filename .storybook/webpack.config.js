@@ -1,3 +1,12 @@
+const customSvgLoader = {
+  test: /\.svg$/,
+  use: [
+    {
+      loader: require.resolve('svg-sprite-loader'),
+    },
+  ],
+};
+
 module.exports = (baseConfig, env, defaultConfig) => {
   // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
   defaultConfig.module.rules[0].exclude = [/node_modules\/(?!(gatsby)\/)/]
@@ -18,6 +27,25 @@ module.exports = (baseConfig, env, defaultConfig) => {
   
   // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
   defaultConfig.resolve.mainFields = ["browser", "module", "main"]
+
+  // Eka's custom modification 
+  // enable SVG plugin
+  // https://github.com/storybooks/storybook/issues/4650#issuecomment-437330535
+
+  const rules = defaultConfig.module.rules.filter(rule => {
+    return !rule.loader || (rule.loader && rule.loader.indexOf('file-loader') === -1)
+  })
+  rules.push({
+    test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2)(\?.*)?$/,
+    loader: require.resolve('file-loader'),
+    query: {
+      name: 'static/media/[name].[hash:8].[ext]',
+    },
+  })
+  rules.push(customSvgLoader);
+  defaultConfig.module.rules = rules
+
+  // end custom mods
 
   return defaultConfig
 }

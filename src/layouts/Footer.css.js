@@ -3,6 +3,7 @@ import { OuterWrapper } from '../components/Wrapper'
 import { lineHeight, fontSize, space } from 'styled-system'
 import theme from '../../data/theme'
 import { mq } from '../../data/mq'
+import { bodyLinkStyle } from '../mixins';
 
 export const FooterWrapper = styled(OuterWrapper)`
   ${fontSize}
@@ -19,11 +20,7 @@ export const FooterWrapper = styled(OuterWrapper)`
   )};
 
   a {
-    color: ${theme.colors.accentFg};
-    text-decoration-color: hsla(0, 0%, 100%, 0.5);
-    &:hover {
-      text-decoration: none;
-    }
+    ${bodyLinkStyle(theme.colors.fg, theme.colors.accentFg)};
   }
 `
 FooterWrapper.defaultProps = {
@@ -56,12 +53,7 @@ export const FooterLinks = styled.div`
     }
 
     a {
-      color: ${theme.colors.fg};
-      text-decoration: none;
-      &:hover {
-        color: ${theme.colors.accentFg};
-        text-decoration: underline;
-      }
+      ${bodyLinkStyle(theme.colors.fg, theme.colors.accentFg)};
     }
   }
 `

@@ -1,11 +1,9 @@
 import styled, { css } from 'styled-components'
 import { mq } from '../../../data/mq'
-import OuterWrapper from './OuterWrapper'
+import { OuterWrapper } from '../Wrapper'
+import { lineHeight, borders, space } from 'styled-system'
 
-const BlogIndexWrapper = styled(OuterWrapper).attrs({
-  as: 'main',
-  role: 'main',
-})`
+export const BlogIndexWrapper = styled(OuterWrapper)`
 
   ${mq.xs(
     css`
@@ -15,7 +13,8 @@ const BlogIndexWrapper = styled(OuterWrapper).attrs({
         [left-gap] 1fr 
         [main] 8fr 
         [right-gap] 1fr 
-        [right-edge] minmax(12rem, 3fr);
+        [right-edge] minmax(12rem, 3fr)
+        [end];
     `
   )};
 
@@ -36,24 +35,40 @@ const BlogIndexWrapper = styled(OuterWrapper).attrs({
   .temp-group >*:not(.temp-group-title) {
     grid-column: inner-main;
   }
-
-  .temp-group-title {
-    margin-bottom: 1rem;
-  }
 `
-
-export default BlogIndexWrapper
 
 ////
 
-export const BlogIndexSide = styled.div`
+export const BlogTitleWrapper = styled.header`
+  order: -1;
+  grid-column: left-edge / end;
+  margin-left: -0.25rem;
+`
+
+////
+
+// to extend by Side + Main below
+const BlogContentBlock = styled.div`
+  ${space}
+  ${borders}
+
+  border-top: solid #fff;
+`
+BlogContentBlock.defaultProps = {
+  pt: [3,3,4,4],
+  mb: 4,
+  borderTop: 2,
+}
+
+////
+
+export const BlogIndexSide = styled(BlogContentBlock)`
   grid-column: right-edge;
-  margin-bottom: 1rem;
 `
 
 ////
 
-export const BlogIndexMain = styled.div`
+export const BlogIndexMain = styled(BlogContentBlock)`
   order: -1;
   grid-column: left-edge / right-gap;
 `

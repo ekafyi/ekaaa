@@ -112,5 +112,5 @@ export const SocialHighlightTitle = styled.h3`
   }
 `
 SocialHighlightTitle.defaultProps = {
-  fontSize: [6, 5],
+  fontSize: [7, 6],
 }

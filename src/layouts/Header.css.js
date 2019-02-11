@@ -18,11 +18,12 @@ export const HeaderWrapper = styled(OuterWrapper)`
   )};
 `
 HeaderWrapper.defaultProps = {
-  mb: 3,
   py: [1, 2],
 }
 
-export const PrimaryNav = styled.nav``
+export const PrimaryNav = styled.nav.attrs({
+  role: 'navigation',
+})``
 
 export const SecondaryNav = styled.div``
 

@@ -85,9 +85,10 @@ const ContentBody = styled.div`
 class Content extends React.Component {
   render() {
     const { content, date, tags } = this.props
-
+    
     return (
       <section>
+        <h2>auououoo</h2>
         {(tags || date) && <ContentHeader date={date} tags={tags} />}
         <ContentBody dangerouslySetInnerHTML={{ __html: content }} />
       </section>

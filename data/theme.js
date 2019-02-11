@@ -53,18 +53,19 @@ const theme = {
     modularScale(0, baseFontSize, 'majorSecond'), // 2 - default (1rem)
     modularScale(2, baseFontSize, 'majorSecond'), // 3 - for intro text xs, sm
     modularScale(3, baseFontSize, 'majorSecond'), // 4 - for post title
+    modularScale(5, baseFontSize, 'majorSecond'), // 5 - for section (eg. bio) title
 
     // !TEMP
-    modularScale(7, baseFontSize, 'majorSecond'), // 5
-    modularScale(9, baseFontSize, 'majorSecond'), // 6 - for SectionTitle xs
-    modularScale(12, baseFontSize, 'majorSecond'), // 7 - for SectionTitle sm & md
-    modularScale(14, baseFontSize, 'majorSecond'), // 8 - for SectionTitle lg up
+    modularScale(7, baseFontSize, 'majorSecond'), // 6
+    modularScale(9, baseFontSize, 'majorSecond'), // 7 - for SectionTitle xs
+    modularScale(12, baseFontSize, 'majorSecond'), // 8 - for SectionTitle sm & md
+    modularScale(14, baseFontSize, 'majorSecond'), // 9 - for SectionTitle lg up
   ],
 
   // ◼
   // import { color } from 'styled-system'
   colors: {
-    bg: 'hsla(227, 60%, 30%, 1)',
+    bg: 'hsla(227, 60%, 27%, 1)',
     fg: 'hsla(0, 0%, 100%, 1)',
 
     accentMain: 'hsla(9, 100%, 75%, 1)', // main "brand" color
@@ -82,7 +83,7 @@ const theme = {
   // import { borderRadius }  from "styled-system"
   // export const Foo = styled.div`${borderRadius}`
 
-  lineHeights: [ 1, 1.25, 1.475 ],
+  lineHeights: [ 1, 1.25, 1.425, 1.6 ], // !TODO tambahin '1.125'
 
   fonts: {
     sans: '"Helvetica Neue", "Segoe UI", "Arial", "sans-serif"',
@@ -94,6 +95,7 @@ const theme = {
     head: '500',
   },
 
+  borders: ['0.125rem', '0.25rem', '0.5rem'],
 
   // "Variants" are used to define sets of reusable custom styles
   // https://github.com/jxnblk/styled-system/blob/master/docs/api.md#variants

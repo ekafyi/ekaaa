@@ -75,4 +75,8 @@ a {
 svg {
   fill: currentColor;
 }
+
+::selection {
+  background-color: ${theme.colors.fgMuted[0]};
+}
 `

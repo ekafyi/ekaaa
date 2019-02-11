@@ -53,7 +53,7 @@ export const SeeAllLink = styled.div`
 `
 SeeAllLink.defaultProps = {
   py: 2,
-  fontSize: [2, 4, 6, 4, 6],
+  fontSize: [2, 4, 7, 4, 7],
   gridColumn: ['auto', '2', 'auto', '4', 'auto'],
   justifyContent: ['flex-end', 'flex-end', 'initial', 'flex-end', 'initial'],
 }

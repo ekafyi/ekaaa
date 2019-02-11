@@ -1029,6 +1029,10 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
+"@reach/visually-hidden@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@reach/visually-hidden/-/visually-hidden-0.1.2.tgz#96605cdcbd4585c76b56fed779904423e1f87794"
+
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"

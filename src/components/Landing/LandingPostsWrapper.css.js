@@ -40,7 +40,7 @@ export const SectionTitle = styled.h3`
   }
 `
 SectionTitle.defaultProps = {
-  fontSize: [6, 6, 7, 7, 8],
+  fontSize: [7, 7, 8, 8, 9],
   mb: [4, 5],
   pb: [0, 0, 0, 1, 2],
 }

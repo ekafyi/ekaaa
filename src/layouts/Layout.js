@@ -12,7 +12,9 @@ import styled from 'styled-components'
 const LayoutContentWithoutHeader = styled.div`
   min-height: 88vh;
 `
-const LayoutContentWithHeader = styled.div`
+const LayoutContentWithHeader = styled.main.attrs({
+  role: 'main',
+})`
   min-height: calc(88vh - 5rem);
 `
 
