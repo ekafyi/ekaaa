@@ -15,7 +15,7 @@ export const DateWrapper = styled.div`
   ${lineHeight}
   ${space}
 
-  color: yellow;
+  color: ${theme.colors.accentFg};
 `
 DateWrapper.defaultProps = {
   fontSize: 1,
@@ -29,6 +29,8 @@ DateWrapper.defaultProps = {
 const headerNoteStyle = {
   gridRow: 2,
   borderTop: 'none',
+  marginLeft: 0,
+  marginRight: 0,
 }
 export const BlogSingleHeaderNote = ({...props}) => <BlogSingleHeader {...props} mt={[-3,-4]} mb={[4,5]} style={headerNoteStyle}>{props.children}</BlogSingleHeader>
 
@@ -43,32 +45,42 @@ export const BlogSingleBodyNote = ({...props}) => <BlogSingleBody {...props} fon
 
 ////
 
-export const LinkPostTitle = styled.a.attrs({
-  rel: 'external',
-})`
-  ${space}
+export const commonLinkStyle = css`
+  display: block;
+  padding-bottom: .5rem; 
 
-  display: inline-block;
-  border-left: ${theme.borders[2]} dotted ${darken(0.06, theme.colors.bg)};
-  padding-left: 1rem;
-  padding-bottom: .5rem;
+  ${'' /* option 1 */}
+  ${'' /* border-left: ${theme.borders[2]} dotted ${darken(0.07, theme.colors.bg)};
+  padding-left: 1rem; */}
 
-  &:not(:hover):not(:focus) {
-    text-decoration: none;
-  }
+  ${'' /* option 2, also ugly */}
+  ${'' /* border-radius: .5rem;
+  border: 0.0625rem dotted ${transparentize(0.5, theme.colors.accentMain)};
+  padding: .25rem .5rem .75rem; */}
 
   &:hover,
   &:focus {
     color: ${theme.colors.accentFg};
     text-decoration-color: ${transparentize(0.5, theme.colors.accentFg)};
-    border-left-color: ${theme.colors.accentFg};
+    // border-left-color: ${theme.colors.accentBg};
   }
 
   .icon-in-title {
     width: .66em;
     height: .66em;
-    margin-left: .2em;
+    margin-left: .33em;
+    // padding-bottom: .25em;
     color: ${theme.colors.accentFg};
+  }
+`
+export const LinkPostTitle = styled.a.attrs({
+  rel: 'external',
+})`
+  ${space}
+  ${commonLinkStyle}
+
+  &:not(:hover):not(:focus) {
+    text-decoration: none;
   }
 `
 
@@ -78,8 +90,8 @@ export const LinkPostTitleIcon = styled.svg.attrs({
   role: 'presentation',
   alt: '',
   ariaHidden: true,
-  width: 24,
-  height: 24,
+  width: 20,
+  height: 20,
   className: 'icon-in-title',
 })`
   * {

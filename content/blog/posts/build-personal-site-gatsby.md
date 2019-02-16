@@ -1,6 +1,5 @@
 ---
 title: "Building ekaaa.me with Gatsby"
-slug: "build-personal-site-gatsby"
 date: "2018-12-29"
 language: en
 generate-card: false
@@ -8,7 +7,10 @@ tags:
   - 'meta'
   - 'frontend'
   - 'gatsby'
-post_format: article
+meta: []
+location: "Yogyakarta, Indonesia"
+description: "A series of post about building this site"
+longDescription: "This is a series of post about building my personal site with Gatsby. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 ---
 
 I wrote a step-by-step account of how I set up this website (well, just the landing page at the moment) with Gatsby on [the Dev Community](https://dev.to). You can view the posts below.

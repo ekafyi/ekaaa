@@ -8,6 +8,8 @@ import Article from '../components/Article'
 import PrevNextPost from '../components/PrevNextPost'
 //import SEO from '../components/SEO'
 
+// ⚠️ DO NOT DELETE, HAS PAGINATION EXAMPLE
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -26,7 +28,7 @@ class BlogPostTemplate extends React.Component {
             post.frontmatter.imageTw && post.frontmatter.imageTw.publicURL
           }
           lang={post.frontmatter.language}
-          path={post.frontmatter.slug}
+          // path={post.frontmatter.sssslug}
           isBlogPost
         />
 

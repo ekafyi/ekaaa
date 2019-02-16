@@ -12,7 +12,7 @@ class PrevNextPost extends React.Component {
     return (
       <Fragment>
         <Text>Read next:</Text>
-        <PostList posts={articles} listType="related" />
+        <PostList posts={articles} listLayout="related" />
       </Fragment>
     )
   }

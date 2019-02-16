@@ -1,16 +1,19 @@
-const {resolve} = require('path');
+const { resolve } = require('path');
 const { createFilePath } = require('gatsby-source-filesystem')
 const config = require('./data/siteConfig');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const BlogPostTemplate = resolve('./src/templates/blog-post.js')
-  const BlogPostShareImage = resolve('./src/templates/blog-post-share-image.js')
+  // define template files
+  const BlogIndexTemplate = resolve('./src/templates/blog-index.js') // currently not used
+  const BlogIndexByMonthTemplate = resolve('./src/templates/blog-index-month.js')
+  const ArticlePostTemplate = resolve('./src/templates/article-post.js')
+  const LinkPostTemplate = resolve('./src/templates/link-post.js')
+  const NotePostTemplate = resolve('./src/templates/note-post.js')
   const PageTemplate = resolve('./src/templates/page.js')
   const TagTemplate = resolve('./src/templates/tag.js')
-  const FormatTemplate = resolve('./src/templates/format.js')
-  const ListPostsTemplate = resolve('./src/templates/blog-list-template.js')
+  const BlogPostShareImage = resolve('./src/templates/blog-post-share-image.js')
 
   const allMarkdown = await graphql(
     `
@@ -18,12 +21,12 @@ exports.createPages = async ({ graphql, actions }) => {
         allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
           edges {
             node {
+              fields {
+                slug
+              }
               frontmatter {
                 title
-                slug
-                type
                 tags
-                post_format
               }
             }
           }
@@ -37,67 +40,138 @@ exports.createPages = async ({ graphql, actions }) => {
     throw Error(allMarkdown.errors)
   }
 
+  // define all entries in `blog`, `pages`, `projects` folders
   const markdownFiles = allMarkdown.data.allMarkdownRemark.edges
 
+  /////////////////////////
+  // generate `page` pages
+  /////////////////////////
+
+  markdownFiles
+    .filter(item => (item.node.fields.slug.startsWith('/pages/')))
+    .forEach(page => {
+      createPage({
+        path: page.node.fields.slug.replace('/pages', ''),
+        component: PageTemplate,
+        context: {
+          slug: page.node.fields.slug,
+        },
+      })
+    })
+
+  /////////////////////////
+  // generate `blog` pages
+  /////////////////////////
+
+  // before we begin, filter only `blog` files
   const posts = markdownFiles
-    //.filter(item => (item.node.frontmatter.type !== 'page' && item.node.frontmatter.type !== 'project'))
-    .filter(item => !item.node.frontmatter.type)
-
-  // const projects = markdownFiles
-  //   .filter(item => item.node.frontmatter.type === 'project')
+    .filter(item => (item.node.fields.slug.startsWith('/blog/')))
   
-  // generate paginated post list
-  const postsPerPage = config.postsPerPage;
-  const nbPages = Math.ceil(posts.length / postsPerPage)
+  // 1. generate post list (Blog Index/Archive) grouped by month
 
-  Array.from({ length: nbPages }).forEach((_, i) => {
+  // currently hardcoded
+  // `/blog` = show ALL entries
+  // `/posts` = show entries in "posts" folder
+  // `/links` = show entries in "link" folder
+  // `/notes` = show entries in "note" folder
+
+  const postTypes = [
+    {
+      name: 'blog',
+      regex: '\/blog\/',
+    },
+    {
+      name: 'posts',
+      regex: '\/blog\/posts\/',
+    },
+    {
+      name: 'links',
+      regex: '\/blog\/links\/',
+    },
+    {
+      name: 'notes',
+      regex: '\/blog\/notes\/',
+    },
+  ]
+  Array.from(postTypes, postType => {
     createPage({
-      path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
-      component: ListPostsTemplate,
+      path: postType.name,
+      component: BlogIndexByMonthTemplate,
       context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        currentPage: i + 1,
-        nbPages: nbPages,
+        pathSlug: postType.regex
       },
     })
   })
 
-  // generate blog posts
+  // 2. generate paginated post list (Blog Index)
+  // from starter site, currently not used
+  // if needed, combine with #1 OR use for eg. tag archive page?
+
+  // const postsPerPage = config.postsPerPage;
+  // const nbPages = Math.ceil(posts.length / postsPerPage)
+
+  // Array.from({ length: nbPages }).forEach((_, i) => {
+  //   createPage({
+  //     path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
+  //     component: BlogIndexTemplate,
+  //     context: {
+  //       limit: postsPerPage,
+  //       skip: i * postsPerPage,
+  //       currentPage: i + 1,
+  //       nbPages: nbPages,
+  //     },
+  //   })
+  // })
+
+  // 3. generate individual blog posts
+  // use different template file based on post type 
+  // (files in `blog/posts` are rendered with "article" template, `blog/links` with "link" template, etc)
+
   posts
     .forEach((post, index, posts) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node;
       const next = index === 0 ? null : posts[index - 1].node;
 
-      const post_format = post.node.frontmatter.post_format || 'notes';
+      // define post types and corresponding template files
+      let slug = post.node.fields.slug
+      let templateComponent
+      if (slug.startsWith('/blog/posts/')) {
+        templateComponent = ArticlePostTemplate
+      } else if (slug.startsWith('/blog/links/')) {
+        templateComponent = LinkPostTemplate
+      } else if (slug.startsWith('/blog/notes/')) {
+        templateComponent = NotePostTemplate
+      }
 
+      // create pages with specified path and template
       createPage({
-        path: post_format + '/' + post.node.frontmatter.slug,
-        component: BlogPostTemplate,
+        path: slug.replace('/blog', ''),
+        component: templateComponent,
         context: {
-          slug: post.node.frontmatter.slug,
+          slug,
           previous,
           next,
         },
       })
 
       // generate post share images (dev only)
+      // !TODO explore how this works 🤓
       if (process.env.gatsby_executing_command.includes('develop')) {
         createPage({
-          path: `${post.node.frontmatter.slug}/image_tw`,
+          path: `${slug.replace('/blog', '')}/image_tw`,
           component: BlogPostShareImage,
           context: {
-            slug: post.node.frontmatter.slug,
+            slug: slug,
             width: 440,
             height: 220,
             type: 'twitter',
           }
         })
         createPage({
-          path: `${post.node.frontmatter.slug}/image_fb`,
+          path: `${slug.replace('/blog', '')}/image_fb`,
           component: BlogPostShareImage,
           context: {
-            slug: post.node.frontmatter.slug,
+            slug: slug,
             width: 1200,
             height: 630,
             type: 'facebook',
@@ -107,21 +181,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
     })
 
-  // generate pages
-  markdownFiles
-    .filter(item => item.node.frontmatter.type === 'page')
-    .forEach(page => {
-      createPage({
-        path: page.node.frontmatter.slug,
-        component: PageTemplate,
-        context: {
-          slug: page.node.frontmatter.slug,
-        },
-      })
-    })
+  // 3. generate tag archive pages
+  // based on `tags` field in frontmatter
 
-  // generate tags
-  markdownFiles
+  posts
     .filter(item => item.node.frontmatter.tags !== null)
     .reduce((acc, cur) => [...new Set([...acc, ...cur.node.frontmatter.tags])], [])
     .forEach(uniqTag => {
@@ -130,20 +193,6 @@ exports.createPages = async ({ graphql, actions }) => {
         component: TagTemplate,
         context: {
           tag: uniqTag
-        },
-      })
-    })
-
-  // generate post formats page
-  markdownFiles
-    .filter(item => item.node.frontmatter.post_format !== null)
-    .reduce((acc, cur) => [...new Set([cur.node.frontmatter.post_format])], [])
-    .forEach(uniqFormat => {
-      createPage({
-        path: `${uniqFormat}`,
-        component: FormatTemplate,
-        context: {
-          post_format: uniqFormat
         },
       })
     })

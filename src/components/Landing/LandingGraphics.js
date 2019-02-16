@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import { lineHeight, fontSize, fontWeight, space } from 'styled-system'
 import { mq } from '../../../data/mq'
 import theme from '../../../data/theme'
+import { bodyLinkStyle } from '../../mixins';
 
 import { LargeP } from '../Typography'
 
@@ -123,11 +124,11 @@ export const TextWithShapedImage = styled.p`
     display: none;
   }
 
-  ${'' /* !TODO to refactor */}
+  ${'' /* !TODO to refactor (make same component as LandingIntroWrapper) */}
   color: ${theme.colors.accentMain};
+
   a {
-    color: ${theme.colors.fg};
-    text-decoration-color: ${theme.colors.accentMain};
+    ${bodyLinkStyle(theme.colors.accentMain, theme.colors.fg)};
   }
 `
 TextWithShapedImage.defaultProps = {

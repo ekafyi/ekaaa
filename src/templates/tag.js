@@ -20,7 +20,7 @@ class Tags extends React.Component {
 
         <OldWrapper>
           <h1>Posts tagged as "{this.props.pageContext.tag}"</h1>
-          <PostList posts={posts} listType="morning-dew" />
+          <PostList posts={posts} listLayout="morning-dew" />
         </OldWrapper>
       </Layout>
     )
@@ -38,13 +38,14 @@ export const pageQuery = graphql`
       edges {
         node {
           excerpt
+          fields {
+            fullSlug: slug
+          }
           frontmatter {
             date(formatString: "DD MMMM YYYY")
             title
             tags
             language
-            slug
-            post_format
           }
         }
       }

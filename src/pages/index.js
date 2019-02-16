@@ -125,10 +125,10 @@ class LandingPage extends React.Component {
               <ProjectList posts={projects} />
             </LandingPostsWrapper>
             <LandingPostsWrapper sectionTitle="Posts" childColWidth="2">
-              <PostList posts={posts} listType="short" />
+              <PostList posts={posts} listLayout="short" />
               <SeeAllLink>
-                <Link to="/blog" title="See Blog">
-                  <span className="text-label">See Blog &nbsp;</span>
+                <Link to="/posts" title="See all posts">
+                  <span className="text-label">See all posts &nbsp;</span>
                   <svg
                     role="presentation"
                     alt=""
@@ -174,25 +174,38 @@ export const pageQuery = graphql`
   query {
     posts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { type: { eq: null } } }
+      filter: { 
+        fields: {
+          slug: {
+            regex: "\/blog\/posts\/"
+          }
+        }
+      }
       limit: 2
     ) {
       edges {
         node {
           excerpt
+          fields {
+            fullSlug: slug
+          }
           frontmatter {
             date(formatString: "DD MMMM YYYY")
             title
             language
-            slug
-            post_format
           }
         }
       }
     }
     projects: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { type: { eq: "project" } } }
+      filter: { 
+        fields: {
+          slug: {
+            regex: "\/projects\/"
+          }
+        }
+      }
       limit: 5
     ) {
       edges {
@@ -207,7 +220,13 @@ export const pageQuery = graphql`
       }
     }
     landing: allMarkdownRemark(
-      filter: { frontmatter: { slug: { eq: "landing" } } }
+      filter: { 
+        fields: {
+          slug: {
+            regex: "\/pages\/landing\/"
+          }
+        }
+      }
       limit: 1
     ) {
       totalCount
@@ -216,7 +235,6 @@ export const pageQuery = graphql`
           excerpt
           html
           frontmatter {
-            slug
             title
             description
             quotes {

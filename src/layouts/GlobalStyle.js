@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import theme from '../../data/theme'
-import { normalize } from 'polished'
+import { normalize, transparentize } from 'polished'
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -77,6 +77,10 @@ svg {
 }
 
 ::selection {
-  background-color: ${theme.colors.fgMuted[0]};
+  background-color: ${transparentize(0.75, theme.colors.accentBg)};
+}
+
+:focus {
+  outline-color: ${theme.colors.accentFg};
 }
 `

@@ -1,7 +1,6 @@
 ---
 title: "About ekaaa.me"
 slug: impressum
-type: page
 ---
 
 ## v1 - _Strange Geometry_ (2018)

@@ -1,13 +1,11 @@
 ---
 title: "Fix missing NPM after upgrading to Mac OS High Sierra"
-slug: "fix-missing-npm-os-high-sierra"
 date: "2018-12-24"
 language: en
 generate-card: false
 tags:
   - 'mac os x'
   - 'troubleshooting'
-post_format: article
 ---
 I just upgraded my Mac to OS X High Sierra (10.13.6). Everything seems to work normally, my existing projects run fine (various React apps and a Laravel app on Docker), until I tried to run npm / npx. 
 

@@ -2,4 +2,7 @@
 import PostList from './PostList'
 import ProjectList from './ProjectList'
 
-export { PostList, ProjectList }
+export { 
+  PostList, 
+  ProjectList,
+}

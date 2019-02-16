@@ -33,7 +33,7 @@ class Header extends React.Component {
         </PrimaryNav>
         <SecondaryNav>
           <HeaderLink as="a" href="#" mr={0} pr={0}>
-            contact
+            {/* contact */}
           </HeaderLink>
         </SecondaryNav>
       </HeaderWrapper>

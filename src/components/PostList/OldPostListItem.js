@@ -55,8 +55,7 @@ class OldPostListItem extends React.Component {
     const {
       title,
       excerpt,
-      slug,
-      post_format,
+      fullSlug,
       date,
       language,
       tags,
@@ -66,7 +65,7 @@ class OldPostListItem extends React.Component {
       <Post>
         <PostHeader>
           <h2>
-            <PostTitleLink to={post_format + '/' + slug}>
+            <PostTitleLink to={fullSlug}>
               {siteConfig.multilangPosts && <Flag language={language} />}
               {title}
             </PostTitleLink>
@@ -76,9 +75,9 @@ class OldPostListItem extends React.Component {
           <Excerpt dangerouslySetInnerHTML={{ __html: excerpt }} />
         </section>
         <footer>
-          <TagList tags={tags} icon={true} />
+          {tags && (<TagList tags={tags} icon={true} />)}
           <PostDate>{date}</PostDate>
-          <ReadPost to={post_format + '/' + slug}>Read post ›</ReadPost>
+          <ReadPost to={fullSlug}>Read post ›</ReadPost>
         </footer>
       </Post>
     )

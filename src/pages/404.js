@@ -35,7 +35,7 @@ class NotFoundPage extends React.Component {
           </Text>
 
           <SubTitle>Recent Posts</SubTitle>
-          <PostList posts={posts} listType="related" />
+          <PostList posts={posts} listLayout="related" />
         </OldWrapper>
       </Layout>
     )
@@ -48,18 +48,26 @@ export const pageQuery = graphql`
   query {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { type: { ne: "page" } } }
+      filter: { 
+        fields: {
+          slug: {
+            regex: "\/blog\/posts\/"
+          }
+        }
+      }
       limit: 5
     ) {
       edges {
         node {
           excerpt
+          fields {
+            fullSlug: slug
+          }
           frontmatter {
             date(formatString: "DD MMMM YYYY")
             title
             tags
             language
-            slug
           }
         }
       }

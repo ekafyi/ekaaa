@@ -16,7 +16,7 @@ class Page extends React.Component {
         <SEO
           title={page.frontmatter.title}
           description={page.excerpt}
-          path={page.frontmatter.slug}
+          // path={post.frontmatter.sssslug}
           cover={page.frontmatter.cover && page.frontmatter.cover.publicURL}
         />
 
@@ -43,10 +43,12 @@ export const pageQuery = graphql`
       id
       excerpt
       html
+      fields {
+        fullSlug: slug
+      }
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
-        slug
+        date(formatString: "DD MMM YYYY")
       }
     }
   }

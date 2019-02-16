@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import theme from '../../../data/theme'
 import { mq } from '../../../data/mq'
+import { bodyLinkStyle } from '../../mixins';
 
 const cssgrid = css`
   display: grid;
@@ -65,11 +66,8 @@ export const LandingTextWrapper = styled.div`
     grid-column: main;
   }
 
-  ${'' /* !TODO - nanti rapihin */}
+  ${'' /* !TODO - nanti pindahin */}
   line-height: ${theme.lineHeights[2]};
-
-  // !TEMP
-  // display: none;
 `
 
 export const LandingIntroWrapper = styled(LandingTextWrapper)`
@@ -93,11 +91,11 @@ export const LandingIntroWrapper = styled(LandingTextWrapper)`
     }
   }
 
-  ${'' /* !TODO to refactor */}
+  ${'' /* !TODO to refactor (make same component as TextWithShapedImage) */}
   color: ${theme.colors.accentMain};
+
   a {
-    color: ${theme.colors.fg};
-    text-decoration-color: ${theme.colors.accentMain};
+    ${bodyLinkStyle(theme.colors.accentMain, theme.colors.fg)};
   }
 `
 

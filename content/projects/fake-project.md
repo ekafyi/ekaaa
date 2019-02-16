@@ -1,7 +1,6 @@
 ---
 title: "coming soon"
 slug: project-fake
-type: project
 date: 1900-12-31
 
 ---

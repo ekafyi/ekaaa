@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const OuterWrapper = styled.div`
   position: relative;
-  padding: 0.5rem;
+  padding: 0.625rem;
 
   @media (min-width: 768px) {
     padding-left: 1rem;

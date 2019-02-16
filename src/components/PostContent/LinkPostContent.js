@@ -9,7 +9,7 @@ import {
 import MetaList from '../MetaList'
 import ShareCard from '../ShareCard'
 import TagList from '../TagList'
-import linkIcon from '../../assets/icon-link.svg'
+import linkIcon from '../../assets/icon-external.svg'
 import { 
   LargeTitle,
   LargeP,
@@ -20,14 +20,14 @@ import {
   LinkPostTitleIcon,
   LinkPostUrl,
   LinkPostBodyWrapper,
-} from './BlogContent.css'
+} from './PostContent.css'
 import VisuallyHidden from "@reach/visually-hidden"
 
 
-class BlogContentLink extends Component {
+class LinkPostContent extends Component {
   render() {
     const {
-      postUrl,
+      fullSlug,
       externalUrl,
       title,
       date,
@@ -35,6 +35,10 @@ class BlogContentLink extends Component {
       html,
       tags,
     } = this.props
+
+    // make URL for sharing 
+    // ⚠️ note: match generated URLs in gatsby-node.js
+    const postUrl = 'https://ekaaa.me' + '/' + fullSlug;
 
     // get the "host" part of externalUrl
     // (eg. https://css-tricks.com/where-do-you-learn-html-css-in-2019/ -> 'css-tricks.com')
@@ -85,8 +89,8 @@ class BlogContentLink extends Component {
 
 const dummyPostBody = '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacinia sit amet urna sed molestie. Cras cursus dolor eu massa porttitor, convallis pharetra velit finibus. Quisque et dui dignissim, dapibus libero eu, accumsan tellus. Nullam consectetur, massa quis vehicula commodo, nulla neque ultrices risus, id blandit velit massa vulputate neque.</p> <p>Aenean gravida enim ex, eu dignissim urna elementum non. Curabitur ornare malesuada arcu, ac vehicula nunc aliquam quis.</p>'
 
-BlogContentLink.propTypes = {
-  postUrl: PropTypes.string.isRequired,
+LinkPostContent.propTypes = {
+  fullSlug: PropTypes.string.isRequired,
   externalUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
@@ -98,14 +102,4 @@ BlogContentLink.propTypes = {
   tags: PropTypes.array,
 };
 
-// remove dummy data below in production
-BlogContentLink.defaultProps = {
-  postUrl: 'https://ekaaa.me/post/blah', // nanti bikin dari slug
-  externalUrl: 'https://css-tricks.com/where-do-you-learn-html-css-in-2019/', 
-  title: 'Where Do You Learn HTML & CSS in 2019?',
-  date: '13 Feb 2019',
-  html: dummyPostBody,
-  tags: [ 'learning resources', 'html', 'css' ],
-};
-
-export default BlogContentLink;
+export default LinkPostContent;

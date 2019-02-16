@@ -3,17 +3,16 @@ import {
   Post,
   PostTitle,
   PostDate,
-  Excerpt,
   PostLink,
-} from './ShortPostListItem.css'
+} from './PostList.css'
 
 class RelatedPostListItem extends React.Component {
   render() {
-    const { title, slug, post_format, date, excerpt } = this.props
+    const { title, fullSlug, date, excerpt } = this.props
 
     return (
       <div>
-        <PostLink to={post_format + '/' + slug}>{title}</PostLink>
+        <PostLink to={fullSlug}>{title}</PostLink>
       </div>
     )
   }

@@ -2,7 +2,9 @@ import {
   BlogIndexWrapper, 
   BlogIndexSide, 
   BlogIndexMain, 
-  BlogTitleWrapper 
+  BlogTitleWrapper,
+  PostGroup,
+  PostGroupTitle,
 } from './BlogIndex'
 
 export { 
@@ -10,4 +12,6 @@ export {
   BlogIndexSide, 
   BlogIndexMain, 
   BlogTitleWrapper,
+  PostGroup,
+  PostGroupTitle,
 }

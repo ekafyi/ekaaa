@@ -24,7 +24,7 @@ storiesOf('Components/MetaList', module).add('default', () => (
     <h4 style={{ marginBottom: 24 }}>no icon</h4>
     <MetaList data={dummyMeta} />
     <hr style={{ marginTop: 24, marginBottom: 24 }} />
-    <h4 style={{ marginBottom: 24 }}>with icon</h4>
+    <h4 style={{ marginBottom: 24 }}>with text icon</h4>
     <MetaList data={dummyMeta} doesShowIcon />
   </div>
 ))

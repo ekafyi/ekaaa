@@ -14,7 +14,6 @@ export const BlogSingleWrapper = styled(OuterWrapper).attrs({
   max-width: 36rem;
   margin-left: auto;
   margin-right: auto;
-  // border-top: solid ${theme.borders[0]} ${theme.colors.fg};
 
   ${mq.md(
     css`
@@ -50,6 +49,7 @@ const BlogSingleBodyStyle = styled(LongFormBody)`
     color: ${theme.colors.accentBg};
     display: inline;
     margin-left: .5rem;
+    font-size: .9em;
   }
 `
 
@@ -68,10 +68,21 @@ export const BlogSingleHeader = styled.header`
   grid-row: 1;
   grid-column: main;
   border-top: solid ${theme.borders[1]} ${theme.colors.fg};
+
+  ${mq.lg(
+    css`
+      margin-left: -12%;
+      margin-right: -12%;
+
+      >* {
+        padding-right: 6%; // balance negative margin above
+      }
+    `
+  )};
 `
 BlogSingleHeader.defaultProps = {
   mb: [0,-2],
-  pt: [3,3,3,4], // temp
+  pt: [3,3,3,4], 
 }
 
 /////
@@ -113,8 +124,8 @@ export const BlogSingleFooter = styled.footer`
 `
 BlogSingleFooter.defaultProps = {
   fontSize: 0,
-  mt: [-3,-4,-4,0],
-  mb: [4,5,5,0],
+  mt: [2,0],
+  mb: ['3rem',5,5,0],
 }
 
 
@@ -143,15 +154,6 @@ export const BlogSingleAfterPost = styled.div`
 
 export const DividerImg = styled.div`
   ${space}
-  ${'' /* color: ${theme.colors.accentFg};
-  margin-bottom: 2rem;
-  text-align: right;
-
-  svg {
-    transform: rotate(15deg);
-    width: 4rem;
-    height: 4rem;
-  } */}
 
   text-align: center;
 
@@ -183,14 +185,6 @@ export const DividerImg = styled.div`
   }
 `
 DividerImg.defaultProps = {
-  mt: [-4,-4],
-  mb: [2,3],
+  mt: [0,0,0,-4],
+  mb: [-2,-2,3],
 }
-
-
-// BlogContentArticle
-// BlogContentNote
-// BlogContentLink
-
-// separate component outside BlogSingle:
-// postdate

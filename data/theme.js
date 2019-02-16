@@ -95,7 +95,7 @@ const theme = {
     head: '500',
   },
 
-  borders: ['0.125rem', '0.25rem', '0.5rem'],
+  borders: ['0.125rem', '0.25rem', '0.5rem'], // !TODO tambahin '0.0625rem'
 
   // "Variants" are used to define sets of reusable custom styles
   // https://github.com/jxnblk/styled-system/blob/master/docs/api.md#variants

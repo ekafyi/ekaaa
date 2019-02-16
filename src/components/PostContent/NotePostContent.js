@@ -17,21 +17,22 @@ import {
   DateWrapper,
   BlogSingleHeaderNote,
   BlogSingleBodyNote,
-} from './BlogContent.css'
+} from './PostContent.css'
 
 
-class BlogContentNote extends Component {
+class NotePostContent extends Component {
   render() {
     const {
-      postUrl,
-      title,
+      fullSlug,
       date,
       location,
-      description,
       html,
       tags,
-      meta,
     } = this.props
+
+    // make URL for sharing 
+    // ⚠️ note: match generated URLs in gatsby-node.js
+    const postUrl = 'https://ekaaa.me' + '/' + fullSlug;
 
     return (
       <React.Fragment>
@@ -63,7 +64,8 @@ class BlogContentNote extends Component {
 
 const dummyPostBody = '<p>Pellentesque nec lectus dignissim, facilisis metus eu, pharetra urna. Aenean suscipit dolor in tortor placerat, ac viverra nisl imperdiet. Duis viverra venenatis tellus bibendum tempus. Integer tempor purus non enim mattis tincidunt. Duis sed urna nec quam condimentum volutpat at vitae lectus. Maecenas laoreet nulla et scelerisque condimentum. Nulla nec auctor ante.</p>'
 
-BlogContentNote.propTypes = {
+NotePostContent.propTypes = {
+  fullSlug: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   location: PropTypes.string,
   html: PropTypes.oneOfType([
@@ -73,12 +75,4 @@ BlogContentNote.propTypes = {
   tags: PropTypes.array,
 };
 
-// remove dummy data below in production
-BlogContentNote.defaultProps = {
-  date: '14 Feb 2019, 9:36 pm',
-  location: 'Yogyakarta, Indonesia',
-  html: dummyPostBody,
-  tags: [ 'mac os x', 'troubleshooting', 'shorties' ],
-};
-
-export default BlogContentNote;
+export default NotePostContent;

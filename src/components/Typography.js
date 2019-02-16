@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components'
-import { Link } from 'gatsby'
+import styled from 'styled-components'
+// import { Link } from 'gatsby'
 import { lineHeight, fontSize, fontWeight, space } from 'styled-system'
 import theme from '../../data/theme'
-import { mq } from '../../data/mq'
+// import { mq } from '../../data/mq'
 import { TypoKitchenSink } from './TypoKitchenSink'
 
 // !TODO - ini gak bisa, nanti benerin lagi
@@ -43,7 +43,7 @@ export const SmallP = styled.p`
   ${space}
 `
 SmallP.defaultProps = {
-  fontSize: ['1rem', 1],
+  fontSize: ['1rem','1rem',1],
   lineHeight: 2,
   mb: 0,
 }
@@ -86,3 +86,15 @@ LargeTitle.defaultProps = {
   lineHeight: [1, '1.125'],
   mb: 4,
 }
+
+// medium heading title - used in Blog Index Group
+// not used
+// export const MediumTitle = styled.h3`
+//   ${fontSize}
+//   ${space}
+// `
+// MediumTitle.defaultProps = {
+//   fontSize: [6,6,6,'calc(2rem + 1.5vw)','calc(2rem + 1.25vw)',7],
+//   // lineHeight: [1, '1.125'],
+//   mb: 3,
+// }

@@ -31,6 +31,17 @@ export const unbutton = () => `
   color: inherit;
 `
 
+export const linkCoverParent = () => `
+  &:before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+`
+
 //////////////////////
 // usage example
 //////////////////////

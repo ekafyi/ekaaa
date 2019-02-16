@@ -1,6 +1,5 @@
 module.exports = {
-  siteTitle:
-    'Personal site of Eka, front-end web developer in Yogyakarta, Indonesia',
+  siteTitle: 'Personal site of Eka, front-end web developer in Yogyakarta, Indonesia',
   siteDescription: "👋 Hey I'm a Gatsby starter!",
   authorName: 'Eka',
   authorAvatar: '/images/avatar.jpeg',
@@ -17,10 +16,11 @@ module.exports = {
   theme_color: '#222222',
   display: 'minimal-ui',
   icon: 'src/assets/gatsby-icon.png',
-  postsPerPage: 5,
+  postsPerPage: 200,
+  maxExcerptLength: 3000,
 
   // Accounts
-  twitterUsername: '@ekaoddlass',
+  twitterUsername: '@ekaonthenet',
   disqusSiteUrl: 'https://www.maxpou.fr/',
   disqusShortname: 'maxpou',
   contactLinks: {
@@ -67,25 +67,37 @@ module.exports = {
   // Navigation
   headerLinks: [
     {
-      label: 'ekaʼs',
+      label: 'ekaaa.me',
       url: '/',
       isHome: true,
     },
+    // {
+    //   label: 'blog',
+    //   url: '/blog',
+    // },
     {
       label: 'posts',
-      url: '/blog',
+      url: '/posts',
     },
     {
-      label: 'notes',
-      url: '/notes',
+      label: 'feed',
+      url: '/feed',
     },
+    // {
+    //   label: 'notes',
+    //   url: '/notes',
+    // },
+    // {
+    //   label: 'links',
+    //   url: '/links',
+    // },
     {
       label: 'projects',
       url: '/projects',
     },
     {
-      label: 'now',
-      url: '/now',
+      label: 'about',
+      url: '/',
     },
   ],
 

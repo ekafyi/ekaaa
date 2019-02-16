@@ -14,6 +14,7 @@ const LayoutContentWithoutHeader = styled.div`
 `
 const LayoutContentWithHeader = styled.main.attrs({
   role: 'main',
+  id: 'main',
 })`
   min-height: calc(88vh - 5rem);
 `
@@ -49,8 +50,3 @@ Layout.propTypes = {
 }
 
 export default Layout
-
-LayoutContentWithHeader.propTypes = {
-  /** test description */
-  foo: PropTypes.string,
-}

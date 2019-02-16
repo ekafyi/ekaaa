@@ -9,7 +9,7 @@ import siteConfig from '../../data/siteConfig'
   // (eg. in `pages` / `templates` file)
   {page.frontmatter.disqus && (
     <Disqus
-      slug={page.frontmatter.slug}
+      slug={page.fields.fullSlug}
       title={page.frontmatter.title}
     />
   )} 

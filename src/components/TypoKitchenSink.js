@@ -15,6 +15,30 @@ export const TypoKitchenSink = css`
     margin-bottom: 0;
   }
 
+  blockquote {
+    padding-top: .493em;
+    padding-bottom: .493em;
+    padding-left: 2.56em;
+    position: relative;
+    &:before {
+      content: "“";
+      color: ${theme.colors.accentBg};
+      position: absolute;
+      top: -0.125em;
+      left: 0;
+      font-size: ${theme.fontSizes[7]};
+    }
+
+    ${'' /* border-left: .25rem solid ${theme.colors.accentBg};
+    padding-left: 1.266em;
+    padding-top: calc(.493em - 2px);
+    padding-bottom: .493em;*/}
+
+    p:last-child {
+      margin-bottom: 0;
+    } 
+  }
+
   ul {
     margin-left: 2rem; // test
   }
