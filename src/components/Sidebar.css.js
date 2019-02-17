@@ -57,7 +57,7 @@ export const AboutBlock = styled.div`
   a {
     ${bodyLinkStyle(theme.colors.fg, theme.colors.accentFg)};
   }
-  
+
   .side-about__text {
     max-width: 25rem;
   }
@@ -72,6 +72,14 @@ export const SidebarBlock = styled.div`
   ${space}
   
   border-top: dotted ${theme.colors.fg} 0.0625rem;
+
+  ${mq.xsOnly(
+    css`
+      &.hide-xs-only {
+        display: none;
+      }
+    `
+  )};
 `
 SidebarBlock.defaultProps = {
   pt: [3],

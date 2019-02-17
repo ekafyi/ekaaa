@@ -12,7 +12,16 @@ class ShareCard extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { isCopied: false }
+    this.state = { 
+      isCopied: false,
+      canCopy: true
+    }
+  }
+
+  componentDidMount() {
+    if (!document.queryCommandSupported('copy')) {
+      this.setState({ canCopy: false })
+    }
   }
 
   // copy post URL to clipboard
@@ -38,7 +47,7 @@ class ShareCard extends Component {
       <ShareCardWrapper>
         {/* <ShareCardTitle>share</ShareCardTitle> */}
         <TweetButton href={twitterShareUrl} target="_blank">Tweet this post</TweetButton>,<br/>{' '}
-        {document.queryCommandSupported('copy') && (
+        {this.state.canCopy && (
           <React.Fragment>
             <CopyButton 
               className="has-js"

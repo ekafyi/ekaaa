@@ -14,20 +14,23 @@ class Page extends React.Component {
     return (
       <Layout location={this.props.location} viewType="blog">
         <SEO
-          title={page.frontmatter.title}
-          description={page.excerpt}
+          // title={page.frontmatter.title}
+          title="test troubleshooting build"
+          description="test troubleshoot build"
           // path={post.frontmatter.sssslug}
-          cover={page.frontmatter.cover && page.frontmatter.cover.publicURL}
+          // cover={page.frontmatter.cover && page.frontmatter.cover.publicURL}
         />
 
         <Hero
-          heroImg={page.frontmatter.cover && page.frontmatter.cover.publicURL}
-          title={page.frontmatter.title}
+          // heroImg={page.frontmatter.cover && page.frontmatter.cover.publicURL}
+          // title={page.frontmatter.title}
+          title="test troubleshooting build"
         />
 
         <OldWrapper>
           <article>
-            <Content content={page.html} date={page.frontmatter.date} />
+            {/* <Content content={page.html} date={page.frontmatter.date} /> */}
+            test
           </article>
         </OldWrapper>
       </Layout>

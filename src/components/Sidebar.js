@@ -23,29 +23,36 @@ const dummyTags = [
 class Sidebar extends Component {
   render() {
     return (
-      <div style={{ position: 'sticky', top: '1rem' }}>
+      <div style={{ position: 'sticky', top: '-8.5rem' }}>
         <AboutBlock>
           <Profpic>
             <img src={eka} />
           </Profpic>
           <SmallP className="side-about__text">
-            Hi there! <span role="img" aria-label="Emoji: waving hand">👋🏾</span> Iʼm <Link to='/'>Eka</Link>, a self-taught web developer, unprolific (but eager) musician, and an okay cook. In this site, I post articles and links on web design and development as well as random thoughts about life and my other interests.
+            Hi there! <span role="img" aria-label="Emoji: waving hand">👋🏾</span> Iʼm <Link to='/'>Eka</Link>, a self-taught web developer and unprolific (but eager) musician. This is where I post <Link to='/posts'>web design and development articles</Link> and resources, along with personal updates and various questionable takes.
           </SmallP>
         </AboutBlock>
+        <SidebarBlock style={{ borderTop: 'none', paddingTop: 0 }}>
+          twitter 
+          github 
+          subscribe RSS
+        </SidebarBlock>
         <SidebarBlock>
           <LargeTitle fontSize={[4]} mb={3}>top tags</LargeTitle>
           <SmallP as="div" fontSize={['1rem',1,0]}>
             <TagList tags={dummyTags} />
           </SmallP>
         </SidebarBlock>
-        {/* <SidebarBlock>
-          <LargeTitle fontSize={[4]} mb={3}>site stuff</LargeTitle>
+        <SidebarBlock className="hide-xs-only">
+          <LargeTitle fontSize={[4]} mb={3}>other stuff</LargeTitle>
           <SmallP as="ul" style={{ paddingLeft: 24 }}>
-            <li><a href="#">RSS feed - everything</a></li>
-            <li><a href="#">RSS feed - posts only</a></li>
-            <li><a href="#">site credits</a></li>
+            <li><a href="#">my playlists</a></li>
+            <li><a href="#">my bookshelf</a></li>
+            <li><a href="#">brilliant at breakfast</a></li>
+            <li><a href="#">nerv.ous</a></li>
+            <li><a href="#">my spotify</a></li>
           </SmallP>
-        </SidebarBlock> */}
+        </SidebarBlock>
       </div>
     );
   }
