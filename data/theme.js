@@ -86,13 +86,14 @@ const theme = {
   lineHeights: [ 1, 1.25, 1.425, 1.6 ], // !TODO tambahin '1.125'
 
   fonts: {
-    sans: '"Helvetica Neue", "Segoe UI", "Arial", "sans-serif"',
+    sans: '"Inter", "Helvetica Neue", "Arial", "sans-serif"',
+    serif: '"Times New Roman", "Times", "serif"',
     // sans: '"system-ui", "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "Segoe UI", "Arial", "sans-serif"',
   },
 
   fontWeights: {
     body: '500',
-    head: '500',
+    head: '600',
   },
 
   borders: ['0.125rem', '0.25rem', '0.5rem'], // !TODO tambahin '0.0625rem'

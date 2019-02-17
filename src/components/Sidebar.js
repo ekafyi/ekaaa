@@ -6,9 +6,20 @@ import eka from '../assets/eka-avatar-cartoon.png'
 import {
   Profpic,
   AboutBlock,
+  ContactBlock,
   SidebarBlock,
+  SocialLink,
+  RssLink,
+  SvgIcon,
 } from './Sidebar.css'
 import TagList from './TagList'
+import { LinkList } from './Typography'
+import VisuallyHidden from "@reach/visually-hidden"
+import { EmojiWrapper } from './Wrapper'
+
+import iconTwitter from '../assets/twitter.svg'
+import iconGithub from '../assets/github-circle.svg'
+import iconRss from '../assets/rss.svg'
 
 const dummyTags = [
   "frontend", 
@@ -29,29 +40,73 @@ class Sidebar extends Component {
             <img src={eka} />
           </Profpic>
           <SmallP className="side-about__text">
-            Hi there! <span role="img" aria-label="Emoji: waving hand">👋🏾</span> Iʼm <Link to='/'>Eka</Link>, a self-taught web developer and unprolific (but eager) musician. This is where I post <Link to='/posts'>web design and development articles</Link> and resources, along with personal updates and various questionable takes.
+            Hello! <span role="img" aria-label="Emoji: waving hand">👋🏾</span> Iʼm <Link to='/'>Eka</Link>, a self-taught web developer and unprolific (but keen) musician. This is where I post <Link to='/posts'>web design and development articles</Link> and resources, along with some personal updates and various questionable takes.
           </SmallP>
         </AboutBlock>
-        <SidebarBlock style={{ borderTop: 'none', paddingTop: 0 }}>
-          twitter 
-          github 
-          subscribe RSS
-        </SidebarBlock>
+        <ContactBlock 
+          mt={-3} 
+          mb={'1.25rem'}
+        >
+          <li>
+            <SocialLink href="#">
+              <SvgIcon>
+                <use xlinkHref={`#${iconGithub.id}`} />
+              </SvgIcon>
+              <VisuallyHidden>Github</VisuallyHidden>
+            </SocialLink>
+          </li>
+          <li>
+            <SocialLink href="#">
+              <SvgIcon style={{ color: '#1da1f2' }}
+                height="16" width="16"
+              >
+                <use xlinkHref={`#${iconTwitter.id}`} />
+              </SvgIcon>
+              <VisuallyHidden>Twitter</VisuallyHidden>
+            </SocialLink>
+          </li>
+          <li>
+            <RssLink href="#">
+              <SvgIcon style={{ color: 'orange' }}>
+                <use xlinkHref={`#${iconRss.id}`} />
+              </SvgIcon>
+              All <VisuallyHidden>RSS</VisuallyHidden>
+            </RssLink>
+          </li>
+          <li>
+            <RssLink href="#"
+              type="application/rss+xml"
+              rel="alternate"
+            >
+              <SvgIcon style={{ color: 'orange' }}>
+                <use xlinkHref={`#${iconRss.id}`} />
+              </SvgIcon>
+              Posts <VisuallyHidden>RSS</VisuallyHidden>
+            </RssLink>
+          </li>
+        </ContactBlock>
         <SidebarBlock>
           <LargeTitle fontSize={[4]} mb={3}>top tags</LargeTitle>
-          <SmallP as="div" fontSize={['1rem',1,0]}>
+          <SmallP as="div" fontSize={['1rem',1,0]} mb={-2}>
             <TagList tags={dummyTags} />
           </SmallP>
         </SidebarBlock>
         <SidebarBlock className="hide-xs-only">
           <LargeTitle fontSize={[4]} mb={3}>other stuff</LargeTitle>
-          <SmallP as="ul" style={{ paddingLeft: 24 }}>
-            <li><a href="#">my playlists</a></li>
-            <li><a href="#">my bookshelf</a></li>
-            <li><a href="#">brilliant at breakfast</a></li>
-            <li><a href="#">nerv.ous</a></li>
-            <li><a href="#">my spotify</a></li>
-          </SmallP>
+          <LinkList>
+            <SmallP as="li" lineHeight={1}>
+              <a href="#"><EmojiWrapper ariaLabel="disc">📀</EmojiWrapper>&nbsp; my playlists</a>
+            </SmallP>
+            <SmallP as="li" lineHeight={1}>
+              <a href="#"><EmojiWrapper>📚</EmojiWrapper>&nbsp; my bookshelf</a>
+            </SmallP>
+            <SmallP as="li" lineHeight={1}>
+              <a href="#"><EmojiWrapper>☕️</EmojiWrapper>&nbsp; brilliant at breakfast</a>
+            </SmallP>
+            <SmallP as="li" lineHeight={1}>
+              <a href="#"><EmojiWrapper>💊</EmojiWrapper>&nbsp; nerv.ous</a>
+            </SmallP>
+          </LinkList>
         </SidebarBlock>
       </div>
     );

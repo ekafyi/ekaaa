@@ -4,6 +4,8 @@ import { lineHeight, fontSize, fontWeight, space } from 'styled-system'
 import theme from '../../data/theme'
 // import { mq } from '../../data/mq'
 import { TypoKitchenSink } from './TypoKitchenSink'
+import { transparentize } from 'polished'
+
 
 // !TODO - ini gak bisa, nanti benerin lagi
 // Base paragraph
@@ -67,6 +69,7 @@ export const XLargeTitle = styled.h1`
   ${lineHeight}
   ${space}
 
+  letter-spacing: -0.02em;
   color: ${theme.colors.accentMain};
 `
 XLargeTitle.defaultProps = {
@@ -80,6 +83,8 @@ export const LargeTitle = styled.h2`
   ${fontSize}
   ${lineHeight}
   ${space}
+
+  letter-spacing: -0.01em;
 `
 LargeTitle.defaultProps = {
   fontSize: [6,6,7,'calc(2.5rem + 1vw)','calc(2.5rem + 1vw)',7],
@@ -98,3 +103,36 @@ LargeTitle.defaultProps = {
 //   // lineHeight: [1, '1.125'],
 //   mb: 3,
 // }
+
+// list of text links
+export const LinkList = styled.ul`
+  ${fontSize}
+  ${space}
+
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    padding: .25rem 0;
+
+    &:not(:last-child) {
+      margin-bottom: .25rem;
+    }
+  }
+
+  li>a {
+
+    &:not(:focus),
+    &:not(:hover) {
+      text-decoration: none;
+    }
+
+    &:focus,
+    &:hover {
+      color: ${theme.colors.accentFg};
+      border-bottom: 2px solid ${transparentize(0.5, theme.colors.accentFg)};
+    }
+  }
+`
+LinkList.defaultProps = {
+}

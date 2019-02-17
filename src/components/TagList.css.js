@@ -7,15 +7,31 @@ import { Link } from 'gatsby'
 import { transparentize, lighten } from 'polished'
 
 
+export const pillBaseStyle = css`
+  display: inline-block;
+  border: 2px solid ${transparentize(0.75, theme.colors.fg)};
+
+  &:hover,
+  &:focus {
+    border-color: ${transparentize(0.33, theme.colors.accentFg)};
+    background: ${lighten(0.05, theme.colors.bg)};
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 1px 1px ${theme.colors.accentFg};
+  }
+`
+
 export const TagListWrapper = styled.div``
 
 export const TagListItem = styled(Link)`
   ${fontSize}
   ${space}
 
+  ${pillBaseStyle}
+
   text-decoration: none;
-  display: inline-block;
-  border: 2px solid ${transparentize(0.75, theme.colors.fg)};
   border-radius: 2rem;
   color: ${transparentize(0.25, theme.colors.fg)};
   line-height: 1;
@@ -29,17 +45,10 @@ export const TagListItem = styled(Link)`
   &:hover,
   &:focus {
     color: ${theme.colors.accentFg};
-    border-color: ${transparentize(0.5, theme.colors.accentFg)};
-    background: ${lighten(0.05, theme.colors.bg)};
 
     &:before {
       color: ${transparentize(0.25, theme.colors.accentFg)};
     }
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0px 0px 1px 1px ${theme.colors.accentFg};
   }
 `
 TagListItem.defaultProps = {

@@ -39,8 +39,8 @@ const PostContentBlock = styled.div`
   border-top: solid ${theme.colors.fg};
 `
 PostContentBlock.defaultProps = {
-  pt: [3,3,4,4],
-  mb: 4,
+  pt: [3,3,4],
+  mb: [2,2,4],
   borderTop: 2,
 }
 
@@ -101,6 +101,7 @@ export const PostGroupTitle = styled.h3.attrs({
   ${fontSize}
 
   text-transform: lowercase;
+  letter-spacing: -0.01em;
 
   &:before {
     content: " ";
@@ -129,8 +130,6 @@ export const PostGroupTitle = styled.h3.attrs({
       }
     `
   )};
-
-
 `
 PostGroupTitle.defaultProps = {
   mb: [4,4,5],

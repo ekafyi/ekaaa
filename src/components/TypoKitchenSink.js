@@ -27,6 +27,8 @@ export const TypoKitchenSink = css`
       top: -0.125em;
       left: 0;
       font-size: ${theme.fontSizes[7]};
+      font-family: ${theme.fonts.serif};
+      font-weight: 900;
     }
 
     ${'' /* border-left: .25rem solid ${theme.colors.accentBg};

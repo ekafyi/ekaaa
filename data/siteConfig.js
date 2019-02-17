@@ -29,7 +29,7 @@ module.exports = {
         label: 'Github',
         url: 'http://twitter.com/ekaoddlass',
         highlight: true,
-        brandColor: '#a175e0',
+        brandColor: '#b392f0',
       },
       {
         label: 'Twitter',

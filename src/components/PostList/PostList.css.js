@@ -38,6 +38,8 @@ export const PostTitle = styled.h4`
   ${fontSize}
   ${lineHeight}
   ${space}
+
+  letter-spacing: -0.018em;
 `
 const basePostTitleProps = {
   lineHeight: 1,

@@ -34,6 +34,7 @@ export const HeaderLink = styled(Link)`
   text-decoration: none;
   text-transform: lowercase;
   display: inline-block;
+  letter-spacing: -0.01em;
 
   &.is-active {
     text-decoration: underline;
@@ -51,15 +52,24 @@ export const HeaderLink = styled(Link)`
   }
 `
 HeaderLink.defaultProps = {
-  fontSize: 2,
+  fontSize: [2,2,3],
   px: 1,
   py: 2,
-  mr: [1, 2],
+  mr: [1,2,3],
+  mt: -1,
 }
 
 export const HomeLink = styled(HeaderLink)`
   color: ${theme.colors.accentMain};
+  padding-right: .5rem;
+  margin-top: 0;
+
   > * {
     font-size: 1.26556em;
+    ${mq.md(
+      css`
+        font-size: 1.125em;
+      `
+    )};
   }
 `
