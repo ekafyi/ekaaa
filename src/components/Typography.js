@@ -113,14 +113,15 @@ export const LinkList = styled.ul`
   padding-left: 0;
 
   li {
-    padding: .25rem 0;
-
     &:not(:last-child) {
       margin-bottom: .25rem;
     }
   }
 
   li>a {
+    display: inline-block;
+    padding: .25rem 0 calc(.25rem - 2px);
+    border-bottom: 2px solid transparent;
 
     &:not(:focus),
     &:not(:hover) {
@@ -132,7 +133,11 @@ export const LinkList = styled.ul`
       color: ${theme.colors.accentFg};
       border-bottom: 2px solid ${transparentize(0.5, theme.colors.accentFg)};
     }
+
+    .emoji-wrapper {
+      font-size: .9em;
+      margin-right: .25em;
+    }
   }
 `
-LinkList.defaultProps = {
-}
+LinkList.defaultProps = {}

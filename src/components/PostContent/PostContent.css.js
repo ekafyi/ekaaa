@@ -66,9 +66,9 @@ export const commonLinkStyle = css`
   }
 
   .icon-in-title {
-    width: .66em;
-    height: .66em;
-    margin-left: .33em;
+    width: .6em;
+    height: .6em;
+    margin-left: .3em;
     // padding-bottom: .25em;
     color: ${theme.colors.accentFg};
   }

@@ -42,6 +42,13 @@ export const linkCoverParent = () => `
   }
 `
 
+export const roundedFocus = () => `
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 1px 1px ${theme.colors.accentFg};
+  }
+`
+
 //////////////////////
 // usage example
 //////////////////////

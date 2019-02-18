@@ -113,11 +113,11 @@ export const SvgIcon = styled.svg.attrs({
 
 ///
 
-const buttonHeight = ['2.5rem', '2rem']
+const buttonHeight = ['2.5rem','2.5rem','2.5rem','2rem']
 const buttonStyle = {
   height: buttonHeight,
   lineHeight: buttonHeight,
-  mr: 2,
+  mr: ['.75rem','.75rem',2], // wider margin for small screens to make tapping easy
   my: 1,
 }
 

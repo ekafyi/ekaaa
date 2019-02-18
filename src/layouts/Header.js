@@ -4,9 +4,15 @@ import {
   HeaderWrapper,
   PrimaryNav,
   SecondaryNav,
+  HeaderListItem,
   HeaderLink,
   HomeLink,
+  SettingsIconLink,
 } from './Header.css'
+
+import iconPaint from '../assets/baseline-color_lens-24px.svg'
+import VisuallyHidden from '@reach/visually-hidden';
+
 
 class Header extends React.Component {
   render() {
@@ -15,27 +21,36 @@ class Header extends React.Component {
     return (
       <HeaderWrapper as="header" role="header">
         <PrimaryNav>
-          {headerLinks.map((headerLink, i) =>
-            headerLink.isHome ? (
-              <HomeLink to={headerLink.url} key={`header-link-${i}`}>
-                <span>{headerLink.label}</span>
-              </HomeLink>
-            ) : (
-              <HeaderLink
-                to={headerLink.url}
-                key={`header-link-${i}`}
-                activeClassName="is-active"
-              >
-                {headerLink.label}
-              </HeaderLink>
-            )
-          )}
+          <ul style={{ listStyle: 'none' }}>
+            {headerLinks.map((headerLink, i) =>
+              headerLink.isHome ? (
+                <HeaderListItem className="primary-nav__home-link" key={`header-link-${i}`}>
+                  <HomeLink to={headerLink.url}>
+                    <span>{headerLink.label}</span>
+                  </HomeLink>
+                </HeaderListItem>
+              ) : (
+                <HeaderListItem key={`header-link-${i}`}>
+                  <HeaderLink
+                    to={headerLink.url}
+                    activeClassName="is-active"
+                  >
+                    {headerLink.label}
+                  </HeaderLink>
+                </HeaderListItem>
+              )
+            )}
+          </ul>
         </PrimaryNav>
-        <SecondaryNav>
-          {/* <HeaderLink as="a" href="#" mr={0} pr={0}>
-              // insert color picker etc here
-          </HeaderLink> */}
-        </SecondaryNav>
+
+          
+        <SettingsIconLink>
+          <svg width="16" height="16" role="presentation" aria-hidden>
+            <use xlinkHref={`#${iconPaint.id}`} />
+          </svg>
+          <VisuallyHidden>Change theme colours</VisuallyHidden>
+        </SettingsIconLink>
+
       </HeaderWrapper>
     )
   }

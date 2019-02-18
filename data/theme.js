@@ -73,7 +73,10 @@ const theme = {
     accentFg: 'yellow', // accent color close to foreground (eg. yellow on a white background)
 
     fgMuted: [
-      'hsla(227, 50%, 80%, 1)'
+      'hsla(227, 50%, 80%, 1)',
+      'hsla(227, 50%, 80%, 1)',
+      'hsla(227, 50%, 80%, 1)',
+      'hsla(227, 70%, 55%, 1)', // used for theme picker
     ]
   },
 

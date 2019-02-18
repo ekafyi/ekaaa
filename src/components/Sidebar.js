@@ -95,16 +95,16 @@ class Sidebar extends Component {
           <LargeTitle fontSize={[4]} mb={3}>other stuff</LargeTitle>
           <LinkList>
             <SmallP as="li" lineHeight={1}>
-              <a href="#"><EmojiWrapper ariaLabel="disc">📀</EmojiWrapper>&nbsp; my playlists</a>
+              <a href="#"><EmojiWrapper isHidden>📀</EmojiWrapper> my playlists</a>
             </SmallP>
             <SmallP as="li" lineHeight={1}>
-              <a href="#"><EmojiWrapper>📚</EmojiWrapper>&nbsp; my bookshelf</a>
+              <a href="#"><EmojiWrapper isHidden>📚</EmojiWrapper> my bookshelf</a>
             </SmallP>
             <SmallP as="li" lineHeight={1}>
-              <a href="#"><EmojiWrapper>☕️</EmojiWrapper>&nbsp; brilliant at breakfast</a>
+              <a href="#"><EmojiWrapper isHidden>☕️</EmojiWrapper> brilliant at breakfast</a>
             </SmallP>
             <SmallP as="li" lineHeight={1}>
-              <a href="#"><EmojiWrapper>💊</EmojiWrapper>&nbsp; nerv.ous</a>
+              <a href="#"><EmojiWrapper isHidden>💊</EmojiWrapper> nerv.ous</a>
             </SmallP>
           </LinkList>
         </SidebarBlock>

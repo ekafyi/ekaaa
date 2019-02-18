@@ -4,6 +4,8 @@ import { lineHeight, fontSize, space } from 'styled-system'
 import theme from '../../data/theme'
 import { mq } from '../../data/mq'
 import { Link } from 'gatsby'
+import { unbutton, roundedFocus } from '../mixins'
+
 
 export const HeaderWrapper = styled(OuterWrapper)`
   ${space}
@@ -46,14 +48,10 @@ export const HeaderLink = styled(Link)`
     color: ${theme.colors.accentMain};
     text-decoration: underline;
   }
-
-  &:first-of-type {
-    padding-left: 0;
-  }
 `
 HeaderLink.defaultProps = {
-  fontSize: [2,2,3],
-  px: 1,
+  fontSize: [3],
+  px: [2,1],
   py: 2,
   mr: [1,2,3],
   mt: -1,
@@ -65,11 +63,59 @@ export const HomeLink = styled(HeaderLink)`
   margin-top: 0;
 
   > * {
-    font-size: 1.26556em;
-    ${mq.md(
-      css`
-        font-size: 1.125em;
-      `
-    )};
+    font-size: 1.125em;
+  }
+`
+
+////
+
+const xsHomeLinkStyle = css`
+  width: 100%;
+
+  +li>a {
+    padding-left: 0;
+  }
+`
+export const HeaderListItem = styled.li`
+  display: inline-block;
+
+  &.primary-nav__home-link {
+    >a {
+      padding-left: 0;
+    }
+
+    ${mq.xsOnly(xsHomeLinkStyle)};
+  }
+`
+
+////
+
+export const SettingsIconLink = styled.button`
+  ${unbutton};
+  ${roundedFocus};
+
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  position: absolute;
+  right: 1rem;
+  z-index: 1;
+  //color: ${theme.colors.accentFg};
+
+  svg {
+    width: 100%;
+    height: 100%;
+    padding: .125em;
+  }
+
+  &:focus,
+  &:hover {
+    background-color: ${theme.colors.fgMuted[3]};
+    color: ${theme.colors.accentFg};
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `
