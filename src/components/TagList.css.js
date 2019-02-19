@@ -4,7 +4,7 @@ import { borders, fontSize, lineHeight, space } from 'styled-system'
 import theme from '../../data/theme'
 import { mq } from '../../data/mq'
 import { Link } from 'gatsby'
-import { transparentize, lighten } from 'polished'
+import { transparentize } from 'polished'
 import { roundedFocus } from '../mixins'
 
 

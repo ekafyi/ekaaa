@@ -5,6 +5,7 @@ import theme from '../../data/theme'
 import { mq } from '../../data/mq'
 import { Link } from 'gatsby'
 import { unbutton, roundedFocus } from '../mixins'
+import { darken } from 'polished'
 
 
 export const HeaderWrapper = styled(OuterWrapper)`
@@ -16,7 +17,8 @@ export const HeaderWrapper = styled(OuterWrapper)`
   ${mq.xsOnly(
     css`
       flex-direction: column;
-      background-color: rgba(0, 0, 0, 0.2); // coba
+      background-color: ${darken(0.05, theme.colors.bg)};
+      z-index: 3; // above totoplink
     `
   )};
 `

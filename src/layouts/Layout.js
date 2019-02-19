@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import SkipLink from './SkipLink'
+import ToTopLink from './ToTopLink'
 import siteConfig from '../../data/siteConfig'
 import PropTypes from 'prop-types'
 import 'prismjs/themes/prism-tomorrow.css'
@@ -31,6 +32,9 @@ class Layout extends React.Component {
           <SkipLink href="#main">
             skip to main content
           </SkipLink>
+          <ToTopLink href="#___gatsby">
+            top
+          </ToTopLink>
           {viewType === 'blog' ? (
             <Fragment>
               <Header headerLinks={siteConfig.headerLinks} />

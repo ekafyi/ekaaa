@@ -12,8 +12,8 @@ module.exports = {
   pathPrefix: '/gatsby-starter-morning-dew', // Note: it must *not* have a trailing slash.
   siteCover: '/images/cover.jpg',
   googleAnalyticsId: 'UA-67868977-1',
-  background_color: '#ffffff',
-  theme_color: 'rgb(28, 45, 110)',
+  background_color: '#1c2d6e',
+  theme_color: '#17255a',
   display: 'minimal-ui',
   icon: 'src/assets/gatsby-icon.png',
   postsPerPage: 200,
@@ -24,23 +24,34 @@ module.exports = {
   disqusSiteUrl: 'https://www.maxpou.fr/',
   disqusShortname: 'maxpou',
   contactLinks: {
+    github: {
+      url: 'http://github.com/ekaoddlass',
+      brandColor: '#b392f0',
+    },
+    twitter: {
+      url: 'http://twitter.com/ekaonthenet',
+      brandColor: '#1da1f2',
+    },
+    rssAll: {
+      url: 'http://ekaaaa.me/rss',
+    },
+    rssPosts: {
+      url: 'http://ekaaaa.me/rss-posts',
+    },
     primary: [
       {
         label: 'Github',
         url: 'http://twitter.com/ekaoddlass',
-        highlight: true,
         brandColor: '#b392f0',
       },
       {
         label: 'Twitter',
         url: 'http://twitter.com/ekaoddlass',
-        highlight: true,
         brandColor: '#1da1f2',
       },
       {
         label: 'Email',
         url: 'mailto:eka@ekaaa.me',
-        highlight: true,
         brandColor: 'salmon',
       },
     ],
@@ -71,10 +82,6 @@ module.exports = {
       url: '/',
       isHome: true,
     },
-    // {
-    //   label: 'blog',
-    //   url: '/blog',
-    // },
     {
       label: 'posts',
       url: '/posts',
@@ -111,18 +118,4 @@ module.exports = {
     url: 'https://gatsbyjs.org',
   },
   creditText: `© Eka 2018 - now. Unless otherwise noted, original content is licensed under <a href="https://creativecommons.org/licenses/by-nc/3.0/" rel="external">Creative Commons BY-NC</a> for non-commercial use. Views are personal.`,
-  footerLinks: [
-    {
-      label: 'eka@ekaaa.me',
-      url: 'mailto:eka@ekaaa.me',
-    },
-    {
-      label: 'Twitter',
-      url: 'http://twitter.com/ekaonthenet',
-    },
-    {
-      label: 'Github',
-      url: 'http://github.com/ekaoddlass',
-    },
-  ],
 }

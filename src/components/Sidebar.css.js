@@ -64,7 +64,7 @@ export const AboutBlock = styled.div`
   }
 `
 AboutBlock.defaultProps = {
-  mb: [4],
+  mb: [3,3,4],
 }
 
 ////

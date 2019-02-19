@@ -11,7 +11,6 @@ import { FooterWrapper, FooterLinks, Copyright, Credits } from './Footer.css'
 class Footer extends React.Component {
   render() {
     const {
-      footerLinks,
       creditHost,
       creditBuilt,
       creditText,
