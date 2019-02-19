@@ -87,13 +87,13 @@ class Sidebar extends Component {
         </ContactBlock>
         <SidebarBlock>
           <LargeTitle fontSize={[4]} mb={3}>top tags</LargeTitle>
-          <SmallP as="div" fontSize={['1rem',1,0]} mb={-2}>
+          <SmallP as="div" fontSize={['1rem',1,0]} mb={-2} className="hide-xs-only">
             <TagList tags={dummyTags} />
           </SmallP>
         </SidebarBlock>
-        <SidebarBlock className="hide-xs-only">
+        <SidebarBlock>
           <LargeTitle fontSize={[4]} mb={3}>other stuff</LargeTitle>
-          <LinkList>
+          <LinkList className="hide-xs-only">
             <SmallP as="li" lineHeight={1}>
               <a href="#"><EmojiWrapper isHidden>📀</EmojiWrapper> my playlists</a>
             </SmallP>

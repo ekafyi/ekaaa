@@ -50,7 +50,7 @@ export const HeaderLink = styled(Link)`
   }
 `
 HeaderLink.defaultProps = {
-  fontSize: [3],
+  fontSize: [2,2,3],
   px: [2,1],
   py: 2,
   mr: [1,2,3],
@@ -99,9 +99,12 @@ export const SettingsIconLink = styled.button`
   height: 2.5rem;
   border-radius: 50%;
   position: absolute;
-  right: 1rem;
+  right: .5rem;
   z-index: 1;
-  //color: ${theme.colors.accentFg};
+
+  ${mq.md(css`
+    right: 1rem;
+  `)};
 
   svg {
     width: 100%;
