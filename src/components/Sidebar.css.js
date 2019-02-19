@@ -80,6 +80,11 @@ export const SidebarBlock = styled.div`
       .hide-xs-only {
         display: none;
       }
+
+      .temp-horizontal-taglist {
+        height: 2.75rem;
+        overflow: hidden;
+      }
     `
   )};
 `
@@ -99,6 +104,12 @@ export const ContactBlock = styled.ul`
   li {
     display: inline-block;
   }
+
+  ${mq.xsOnly(
+    css`
+      display: none;
+    `
+  )};
 `
 
 ///

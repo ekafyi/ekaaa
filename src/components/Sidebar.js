@@ -87,7 +87,7 @@ class Sidebar extends Component {
         </ContactBlock>
         <SidebarBlock>
           <LargeTitle fontSize={[4]} mb={3}>top tags</LargeTitle>
-          <SmallP as="div" fontSize={['1rem',1,0]} mb={-2} className="hide-xs-only">
+          <SmallP as="div" fontSize={['1rem',1,0]} mb={-2} className="temp-horizontal-taglist">
             <TagList tags={dummyTags} />
           </SmallP>
         </SidebarBlock>
@@ -113,7 +113,16 @@ class Sidebar extends Component {
   }
 }
 
-Sidebar.propTypes = {
-};
+Sidebar.propTypes = {};
 
 export default Sidebar;
+
+////
+
+export class SidebarDuplicate extends Component {
+  render() {
+    return (
+      <div>huehe</div>
+    )
+  }
+}

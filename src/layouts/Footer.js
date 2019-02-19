@@ -40,14 +40,14 @@ class Footer extends React.Component {
             <EmojiWrapper ariaLabel="yellow heart">💛</EmojiWrapper>,{' '}
             <EmojiWrapper ariaLabel="hot beverage">☕️</EmojiWrapper>,{' '}
             <a href={creditBuilt.url}>{creditBuilt.name}</a> ]  */}
-            built with <a href={creditBuilt.url}>{creditBuilt.name}</a>{' '}
-            &nbsp;&amp;&amp;&nbsp; hosted by{' '}
-            <a href={creditHost.url}>{creditHost.name}</a>
+            built with <a href={creditBuilt.url}>{creditBuilt.name}</a>, 
+            &nbsp;hosted by <a href={creditHost.url}>{creditHost.name}</a>,
+            &nbsp;source code on <a href="#">Github</a>
           </div>
           <FooterLinks>
-            {footerLinks.map((link, i) => {
+            {/* {footerLinks.map((link, i) => {
               return <FooterLinkItem item={link} key={`footer-link-${i}`} />
-            })}
+            })} */}
           </FooterLinks>
         </Credits>
         <Copyright dangerouslySetInnerHTML={{ __html: creditText }} />

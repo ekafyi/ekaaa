@@ -13,7 +13,7 @@ module.exports = {
   siteCover: '/images/cover.jpg',
   googleAnalyticsId: 'UA-67868977-1',
   background_color: '#ffffff',
-  theme_color: '#222222',
+  theme_color: 'rgb(28, 45, 110)',
   display: 'minimal-ui',
   icon: 'src/assets/gatsby-icon.png',
   postsPerPage: 200,
@@ -110,7 +110,7 @@ module.exports = {
     name: 'Gatsby',
     url: 'https://gatsbyjs.org',
   },
-  creditText: `© Eka 2018-now. Unless otherwise noted, original content is licensed under <a href="https://creativecommons.org/licenses/by-nc/3.0/" rel="external">Creative Commons BY-NC</a> for non-commercial use. Views do not represent my employers.`,
+  creditText: `© Eka 2018 - now. Unless otherwise noted, original content is licensed under <a href="https://creativecommons.org/licenses/by-nc/3.0/" rel="external">Creative Commons BY-NC</a> for non-commercial use. Views are personal.`,
   footerLinks: [
     {
       label: 'eka@ekaaa.me',
