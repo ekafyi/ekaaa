@@ -1,3 +1,5 @@
 import SocialHighlight from './SocialHighlight'
 
-export { SocialHighlight }
+export { 
+  SocialHighlight,
+}

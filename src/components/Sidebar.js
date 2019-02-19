@@ -4,22 +4,17 @@ import { Link } from 'gatsby'
 import { SmallP, LargeTitle } from './Typography'
 import eka from '../assets/eka-avatar-cartoon.png'
 import {
+  SidebarWrapper,
+  SidebarDuplicateWrapper,
   Profpic,
   AboutBlock,
-  ContactBlock,
   SidebarBlock,
-  SocialLink,
-  RssLink,
-  SvgIcon,
+  MiscBlock,
 } from './Sidebar.css'
 import TagList from './TagList'
+import SocialList from './SocialList'
 import { LinkList } from './Typography'
-import VisuallyHidden from "@reach/visually-hidden"
 import { EmojiWrapper } from './Wrapper'
-
-import iconTwitter from '../assets/twitter.svg'
-import iconGithub from '../assets/github-circle.svg'
-import iconRss from '../assets/rss.svg'
 
 const dummyTags = [
   "frontend", 
@@ -30,85 +25,57 @@ const dummyTags = [
   "food pics",
 ]
 
+const misc = (
+  <MiscBlock>
+    <LargeTitle fontSize={[4]} mb={3}>other stuff</LargeTitle>
+    <LinkList>
+      <SmallP as="li" lineHeight={1}>
+        <a href="#"><EmojiWrapper isHidden>📀</EmojiWrapper> my playlists</a>
+      </SmallP>
+      <SmallP as="li" lineHeight={1}>
+        <a href="#"><EmojiWrapper isHidden>📚</EmojiWrapper> my bookshelf</a>
+      </SmallP>
+      <SmallP as="li" lineHeight={1}>
+        <a href="#"><EmojiWrapper isHidden>☕️</EmojiWrapper> brilliant at breakfast</a>
+      </SmallP>
+      <SmallP as="li" lineHeight={1}>
+        <a href="#"><EmojiWrapper isHidden>💊</EmojiWrapper> nerv.ous</a>
+      </SmallP>
+    </LinkList>
+  </MiscBlock>
+)
+
 
 class Sidebar extends Component {
   render() {
     return (
-      <div style={{ position: 'sticky', top: '-8.5rem' }}>
+      <SidebarWrapper style={{ position: 'sticky', top: '-8.5rem' }}>
         <AboutBlock>
           <Profpic>
             <img src={eka} />
           </Profpic>
           <SmallP className="side-about__text">
-            Hello! <span role="img" aria-label="Emoji: waving hand">👋🏾</span> Iʼm <Link to='/'>Eka</Link>, a self-taught web developer and unprolific (but keen) musician. This is where I post <Link to='/posts'>web design and development articles</Link> and resources, along with some personal updates and various questionable takes.
+            Hi! <span role="img" aria-label="Emoji: waving hand">👋🏾</span> Iʼm <Link to='/'>Eka</Link>, a self-taught web developer and unprolific (but keen) musician. This is my personal site, where I post <Link to='/posts'>web design and development articles</Link> and resources, along with some personal updates and various questionable takes.{' '}
+            <a href="#footer" className="side-about__contact-link" aria-hidden>
+              contact&nbsp;/&nbsp;subscribe&nbsp;↓
+            </a>
           </SmallP>
         </AboutBlock>
-        <ContactBlock 
+        <SocialList
           mt={-3} 
           mb={'1.25rem'}
-        >
-          <li>
-            <SocialLink href="#">
-              <SvgIcon>
-                <use xlinkHref={`#${iconGithub.id}`} />
-              </SvgIcon>
-              <VisuallyHidden>Github</VisuallyHidden>
-            </SocialLink>
-          </li>
-          <li>
-            <SocialLink href="#">
-              <SvgIcon style={{ color: '#1da1f2' }}
-                height="16" width="16"
-              >
-                <use xlinkHref={`#${iconTwitter.id}`} />
-              </SvgIcon>
-              <VisuallyHidden>Twitter</VisuallyHidden>
-            </SocialLink>
-          </li>
-          <li>
-            <RssLink href="#">
-              <SvgIcon style={{ color: 'orange' }}>
-                <use xlinkHref={`#${iconRss.id}`} />
-              </SvgIcon>
-              All <VisuallyHidden>RSS</VisuallyHidden>
-            </RssLink>
-          </li>
-          <li>
-            <RssLink href="#"
-              type="application/rss+xml"
-              rel="alternate"
-            >
-              <SvgIcon style={{ color: 'orange' }}>
-                <use xlinkHref={`#${iconRss.id}`} />
-              </SvgIcon>
-              Posts <VisuallyHidden>RSS</VisuallyHidden>
-            </RssLink>
-          </li>
-        </ContactBlock>
+          style={{ marginBottom: '1.25rem' }}
+        />
         <SidebarBlock>
-          <LargeTitle fontSize={[4]} mb={3}>top tags</LargeTitle>
+          <LargeTitle fontSize={[4]} mb={3} className="hide-xs-only">
+            top tags
+          </LargeTitle>
           <SmallP as="div" fontSize={['1rem',1,0]} mb={-2} className="temp-horizontal-taglist">
             <TagList tags={dummyTags} />
           </SmallP>
         </SidebarBlock>
-        <SidebarBlock className="hide-xs-only">
-          <LargeTitle fontSize={[4]} mb={3}>other stuff</LargeTitle>
-          <LinkList>
-            <SmallP as="li" lineHeight={1}>
-              <a href="#"><EmojiWrapper isHidden>📀</EmojiWrapper> my playlists</a>
-            </SmallP>
-            <SmallP as="li" lineHeight={1}>
-              <a href="#"><EmojiWrapper isHidden>📚</EmojiWrapper> my bookshelf</a>
-            </SmallP>
-            <SmallP as="li" lineHeight={1}>
-              <a href="#"><EmojiWrapper isHidden>☕️</EmojiWrapper> brilliant at breakfast</a>
-            </SmallP>
-            <SmallP as="li" lineHeight={1}>
-              <a href="#"><EmojiWrapper isHidden>💊</EmojiWrapper> nerv.ous</a>
-            </SmallP>
-          </LinkList>
-        </SidebarBlock>
-      </div>
+        {misc}
+      </SidebarWrapper>
     );
   }
 }
@@ -122,7 +89,9 @@ export default Sidebar;
 export class SidebarDuplicate extends Component {
   render() {
     return (
-      <div>huehe</div>
+      <SidebarDuplicateWrapper aria-hidden>
+        {misc}
+      </SidebarDuplicateWrapper>
     )
   }
 }

@@ -70,7 +70,7 @@ export const Copyright = styled.div`
   )};
 `
 Copyright.defaultProps = {
-  mt: [4, 3],
+  mt: 3,
 }
 
 export const Credits = styled.div`

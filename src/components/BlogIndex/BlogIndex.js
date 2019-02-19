@@ -102,15 +102,16 @@ export const PostGroupTitle = styled.h3.attrs({
 
   text-transform: lowercase;
   letter-spacing: -0.01em;
+  color: ${theme.colors.fgMuted[0]};
 
   &:before {
     content: " ";
     display: inline-block;
     background: ${theme.colors.accentBg};
-    width: .83em;
-    height: .4em;
+    width: .6em;
+    height: .5em;
     margin-left: -1em;
-    margin-right: .2em;
+    margin-right: .4em;
   }
 
   >*:first-child {
@@ -119,6 +120,8 @@ export const PostGroupTitle = styled.h3.attrs({
 
   ${mq.sm(
     css`
+      color: ${theme.colors.fg};
+
       &:before {
         display: none;
       }
@@ -133,7 +136,7 @@ export const PostGroupTitle = styled.h3.attrs({
 `
 PostGroupTitle.defaultProps = {
   mb: [4,4,5],
-  fontSize: [3,3,'3rem','calc(2rem + 1.5vw)','calc(2rem + 1.25vw)',7],
+  fontSize: [2,2,'3rem','calc(2rem + 1.5vw)','calc(2rem + 1.25vw)',7],
 }
 
 ////

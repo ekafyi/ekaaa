@@ -95,7 +95,7 @@ const theme = {
   },
 
   fontWeights: {
-    body: '500',
+    body: '400',
     head: '600',
   },
 

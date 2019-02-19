@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 // import { color, space, width, fontSize } from 'styled-system'
 // import theme from '../../data/theme'
 // import PropTypes from 'prop-types'
-
+import SocialList from '../components/SocialList'
 import { EmojiWrapper } from '../components/Wrapper'
 import { FooterWrapper, FooterLinks, Copyright, Credits } from './Footer.css'
 
@@ -32,9 +32,10 @@ class Footer extends React.Component {
     }
 
     return (
-      <FooterWrapper as="footer" role="siteinfo">
+      <FooterWrapper as="footer" role="siteinfo" id="footer">
         <Credits>
           <div>
+            <SocialList />
             {/* built with [{' '}
             <EmojiWrapper ariaLabel="yellow heart">💛</EmojiWrapper>,{' '}
             <EmojiWrapper ariaLabel="hot beverage">☕️</EmojiWrapper>,{' '}
@@ -43,11 +44,6 @@ class Footer extends React.Component {
             &nbsp;hosted by <a href={creditHost.url}>{creditHost.name}</a>,
             &nbsp;source code on <a href="#">Github</a>
           </div>
-          <FooterLinks>
-            {/* {footerLinks.map((link, i) => {
-              return <FooterLinkItem item={link} key={`footer-link-${i}`} />
-            })} */}
-          </FooterLinks>
         </Credits>
         <Copyright dangerouslySetInnerHTML={{ __html: creditText }} />
       </FooterWrapper>

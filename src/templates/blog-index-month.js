@@ -14,7 +14,7 @@ import {
   PostGroup,
   PostGroupTitle,
 } from '../components/BlogIndex'
-import Sidebar from '../components/Sidebar'
+import Sidebar, { SidebarDuplicate } from '../components/Sidebar'
 
 const _ = require('lodash')
 const { groupBy } = require('lodash')
@@ -73,6 +73,7 @@ class BlogList extends React.Component {
             })}
           </BlogIndexMain>
         </BlogIndexWrapper>
+        <SidebarDuplicate />
       </Layout>
     )
   }

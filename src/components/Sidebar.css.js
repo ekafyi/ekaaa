@@ -1,16 +1,10 @@
 import styled, { css } from 'styled-components'
-import { OuterWrapper } from '../components/Wrapper'
-import { borders, fontSize, lineHeight, height, width, space } from 'styled-system'
+import { space } from 'styled-system'
 import theme from '../../data/theme'
 import { mq } from '../../data/mq'
-import { unbutton } from '../mixins'
-import {
-  LargeTitle,
-  //P,
-  SmallP,
-} from './Typography'
-import { bodyLinkStyle } from '../mixins';
-import { pillBaseStyle } from './TagList.css'
+import { bodyLinkStyle } from '../mixins'
+import { hideVisually } from 'polished'
+import { OuterWrapper } from './Wrapper'
 
 
 export const Profpic = styled.div`
@@ -21,6 +15,7 @@ export const Profpic = styled.div`
 
   img {
     border-radius: 50%;
+    max-width: 4rem; // for Opera Mini
 
     ${mq.sm(
       css`
@@ -49,11 +44,9 @@ export const AboutBlock = styled.div`
   display: flex;
   align-items: center;
 
-  ${mq.sm(
-    css`
-      display: block;
-    `
-  )};
+  ${mq.sm(css`
+    display: block;
+  `)};
 
   a {
     ${bodyLinkStyle(theme.colors.fg, theme.colors.accentFg)};
@@ -62,9 +55,19 @@ export const AboutBlock = styled.div`
   .side-about__text {
     max-width: 25rem;
   }
+
+  .side-about__contact-link {
+    ${mq.sm(hideVisually())};
+    
+    &,
+    &:hover,
+    &:focus {
+      color: ${theme.colors.accentMain};
+    }
+  }
 `
 AboutBlock.defaultProps = {
-  mb: [3,3,4],
+  mb: [3],
 }
 
 ////
@@ -76,7 +79,6 @@ export const SidebarBlock = styled.div`
 
   ${mq.xsOnly(
     css`
-      &.hide-xs-only,
       .hide-xs-only {
         display: none;
       }
@@ -96,99 +98,41 @@ SidebarBlock.defaultProps = {
 
 ///
 
-export const ContactBlock = styled.ul`
-  ${space}
-
-  list-style-type: none;
-
-  li {
-    display: inline-block;
-  }
-
-  ${mq.xsOnly(
-    css`
-      display: none;
-    `
-  )};
-`
+export const MiscBlock = styled(SidebarBlock)``
 
 ///
 
-export const SvgIcon = styled.svg.attrs({
-  width: 18,
-  height: 18,
-  alt: props => props.alt || '',
-  role: props => props.role || 'presentation',
-  'aria-hidden': props => props.ariaHidden || true,
-})`
-`
-
-///
-
-const buttonHeight = ['2.5rem','2.5rem','2.5rem','2rem']
-const buttonStyle = {
-  height: buttonHeight,
-  lineHeight: buttonHeight,
-  mr: ['.75rem','.75rem',2], // wider margin for small screens to make tapping easy
-  my: 1,
-}
-
-const commonSvgStyle = css`
-  opacity: .9;
-
-  &:focus,
-  &:hover {
-    svg {
-      opacity: 1;
-    }
+const showMiscMdUp = css`
+  .social-list,
+  ${MiscBlock} {
+    display: block;
   }
 `
+// this has to be AFTER MiscBlock
+export const SidebarWrapper = styled.div`
 
-export const SocialLink = styled.a.attrs({
-  rel: 'external',
-})`
-  ${space}
-  ${height}
-  ${width}
-  ${lineHeight}
+  .social-list,
+  ${MiscBlock} {
+    display: none;
+  }
 
-  ${pillBaseStyle}
-  ${commonSvgStyle}
+  ${mq.sm(showMiscMdUp)};
+`
 
-  border-radius: 50%;
-  text-align: center;
+////
 
-  svg {
-    margin: -.125rem auto;
+const hideMiscMdUp = css`
+  ${MiscBlock} {
+    display: none;
   }
 `
-SocialLink.defaultProps = {
-  ...buttonStyle,
-  width: buttonHeight,
-}
+// this has to be AFTER MiscBlock
+export const SidebarDuplicateWrapper = styled(OuterWrapper)`
 
-///
-
-export const RssLink = styled.a`
-  ${space}
-  ${fontSize}
-  ${height}
-  ${lineHeight}
-
-  ${pillBaseStyle}
-  ${commonSvgStyle}
-
-  text-decoration: none;
-  border-radius: 2rem;
-
-  svg {
-    margin-right: .25em;
-    margin-top: -.25rem;
-    vertical-align: middle;
+  ${MiscBlock} {
+    margin-top: -2rem;
+    margin-bottom: 1rem;
   }
+
+  ${mq.sm(hideMiscMdUp)};
 `
-RssLink.defaultProps = {
-  ...buttonStyle,
-  fontSize: [1,0],
-  px: '.75rem',
-}
