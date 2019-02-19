@@ -17,7 +17,7 @@ export const pillBaseStyle = css`
   &:hover,
   &:focus {
     border-color: ${transparentize(0.33, theme.colors.accentFg)};
-    background: ${lighten(0.05, theme.colors.bg)};
+    background: ${theme.colors.fgMuted[3]};
   }
 `
 

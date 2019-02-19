@@ -53,8 +53,8 @@ export const HeaderLink = styled(Link)`
 HeaderLink.defaultProps = {
   fontSize: [2,2,3],
   px: [2,1],
-  py: 2,
-  mr: [1,2,3],
+  py: ['.75rem','.75rem',2],
+  mr: [1,3],
   mt: -1,
 }
 
