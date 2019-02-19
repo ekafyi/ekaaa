@@ -16,6 +16,7 @@ export const HeaderWrapper = styled(OuterWrapper)`
   ${mq.xsOnly(
     css`
       flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.2); // coba
     `
   )};
 `
@@ -69,7 +70,7 @@ export const HomeLink = styled(HeaderLink)`
 ////
 
 const xsHomeLinkStyle = css`
-  //width: 100%;
+  width: 100%;
 
   +li>a {
     padding-left: 0;
@@ -83,7 +84,7 @@ export const HeaderListItem = styled.li`
       padding-left: 0;
     }
 
-    ${mq.xsOnly(xsHomeLinkStyle)};
+    ${'' /* ${mq.xsOnly(xsHomeLinkStyle)}; */}
   }
 `
 

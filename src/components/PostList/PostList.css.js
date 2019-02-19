@@ -238,7 +238,7 @@ export const CommonBlogPostTitle = styled(PostTitle)`
 `
 CommonBlogPostTitle.defaultProps = {
   ...basePostTitleProps,
-  fontSize: [4,4,5],
+  fontSize: [5,5,5],
 }
 
 ///
