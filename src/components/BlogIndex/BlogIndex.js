@@ -109,7 +109,7 @@ export const PostGroupTitle = styled.h3.attrs({
     background: ${theme.colors.accentBg};
     width: .83em;
     height: .4em;
-    margin-left: -1rem;
+    margin-left: -1em;
     margin-right: .2em;
   }
 

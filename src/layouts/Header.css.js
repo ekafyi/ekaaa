@@ -21,7 +21,8 @@ export const HeaderWrapper = styled(OuterWrapper)`
   )};
 `
 HeaderWrapper.defaultProps = {
-  py: [1, 2],
+  py: [1,2],
+  px: [2,'auto'], // sm-up is `auto` (invalid) so it uses default OuterWrapper padding
 }
 
 export const PrimaryNav = styled.nav.attrs({

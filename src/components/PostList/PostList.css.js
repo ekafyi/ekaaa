@@ -131,11 +131,20 @@ LandingPostDate.defaultProps = {}
 
 // `CommonBlog*` = common components for blog (Article, Note, Link)
 
+const xsLastPostStyle = css`
+  ${`@media (max-width: ` + (theme.breakpoints[1] - 1) + `px) {
+    margin-bottom: 0;
+  }`}
+`
 export const CommonBlogPost = styled(Post)`
   ${'' /* ${props => (!props.isDottedLine && bottomLineStyle)} */}
 
   &:first-of-type {
     margin-top: 1rem;
+  }
+
+  &:last-of-type {
+    ${xsLastPostStyle}
   }
 
   &:not(:last-of-type) {
@@ -153,15 +162,6 @@ export const CommonBlogPost = styled(Post)`
     font-size: ${theme.fontSizes[1]};
     margin-left: .5rem;
 
-    ${'' /* &:after {
-      content: "▶";
-      position: absolute;
-      font-size: .75em;
-      margin-left: .5em;
-      line-height: 2.25;
-      transition: margin-left ease .2s;
-    } */}
-
     &:hover,
     &:focus {
       text-decoration: none;
@@ -169,8 +169,8 @@ export const CommonBlogPost = styled(Post)`
   }
 `
 CommonBlogPost.defaultProps = {
-  pb: [3,3,4],
-  mb: [3,3,4],
+  pb: 4,
+  mb: 4,
 }
 
 ///
