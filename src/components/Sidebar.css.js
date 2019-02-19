@@ -76,7 +76,8 @@ export const SidebarBlock = styled.div`
 
   ${mq.xsOnly(
     css`
-      &.hide-xs-only {
+      &.hide-xs-only,
+      .hide-xs-only, {
         display: none;
       }
     `

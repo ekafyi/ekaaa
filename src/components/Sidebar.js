@@ -91,9 +91,9 @@ class Sidebar extends Component {
             <TagList tags={dummyTags} />
           </SmallP>
         </SidebarBlock>
-        <SidebarBlock>
+        <SidebarBlock className="hide-xs-only">
           <LargeTitle fontSize={[4]} mb={3}>other stuff</LargeTitle>
-          <LinkList className="hide-xs-only">
+          <LinkList>
             <SmallP as="li" lineHeight={1}>
               <a href="#"><EmojiWrapper isHidden>📀</EmojiWrapper> my playlists</a>
             </SmallP>

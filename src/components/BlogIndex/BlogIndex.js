@@ -133,7 +133,7 @@ export const PostGroupTitle = styled.h3.attrs({
 `
 PostGroupTitle.defaultProps = {
   mb: [4,4,5],
-  fontSize: [6,6,'3rem','calc(2rem + 1.5vw)','calc(2rem + 1.25vw)',7],
+  fontSize: [4,4,'3rem','calc(2rem + 1.5vw)','calc(2rem + 1.25vw)',7],
 }
 
 ////

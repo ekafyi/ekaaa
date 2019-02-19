@@ -59,7 +59,6 @@ HeaderLink.defaultProps = {
 
 export const HomeLink = styled(HeaderLink)`
   color: ${theme.colors.accentMain};
-  padding-right: .5rem;
   margin-top: 0;
 
   > * {
@@ -70,7 +69,7 @@ export const HomeLink = styled(HeaderLink)`
 ////
 
 const xsHomeLinkStyle = css`
-  width: 100%;
+  //width: 100%;
 
   +li>a {
     padding-left: 0;
